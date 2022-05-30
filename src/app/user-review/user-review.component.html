@@ -1,0 +1,70 @@
+<div class="body">
+    <div class="container">
+        <h1 style="text-align: center;">USER REVIEWS ABOUT OUR PRODUCTS</h1>
+        <p style="text-align: center;">Please provide your valuable feedback here!!!</p>
+        <form class="container" [formGroup]="formGroup">
+            <div class="form-group">
+                <label for="firstName">User Name*</label>
+                <input id="firstName" class="form-control" formControlName="firstName" placeholder="user name Required"
+                    required />
+                <div class="help-block text-danger" *ngIf="firstName.touched">
+                    <span *ngIf="firstName.errors?.required">
+                        User Name is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+
+            <label>Choose a product*</label>
+            <select class="form-select" aria-label="Default select example" formControlName="product">
+                <option selected>Choose a shipmate product</option>
+                <option value="Ships management System">Ships management System</option>
+                <option value="Ship Inventory Management Software">Ship Inventory Management Software</option>
+                <option value="Vessel Performance and Management System">Vessel Performance and Management System
+                </option>
+                <option value="Ship Document Maintainence System">Ship Document Maintainence System</option>
+                <option value="Crew Management and Payroll">Crew Management and Payroll </option>
+            </select>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Your Feedback!!!</label>
+                <textarea class="form-control" formControlName="feedback" id="exampleFormControlTextarea1"
+                    rows="3"></textarea>
+                <div class="help-block text-danger" *ngIf="feedback.touched">
+                    <span *ngIf="feedback.errors?.required">
+                        User Name is REQUIRED!!!
+                    </span>
+                </div>
+            </div>
+            <label for="exampleFormControlTextarea1"> Please give a rating</label><br>
+
+            <div class="form-check form-check-inline">
+
+                <input class="form-check-input" type="radio" formControlName="rating" name="rating" id="inlineRadio1"
+                    value="⭐">
+                <label class="form-check-label" for="inlineRadio1">Very Bad</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="rating" name="rating" id="inlineRadio2"
+                    value="⭐⭐">
+                <label class="form-check-label" for="inlineRadio2">Bad</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="rating" name="rating" id="inlineRadio2"
+                    value="⭐⭐⭐">
+                <label class="form-check-label" for="inlineRadio2">Average</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="rating" name="rating" id="inlineRadio2"
+                    value="⭐⭐⭐⭐">
+                <label class="form-check-label" for="inlineRadio2">Good</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" formControlName="rating" name="rating" id="inlineRadio2"
+                    value="⭐⭐⭐⭐⭐">
+                <label class="form-check-label" for="inlineRadio2">Excellent</label>
+            </div>
+
+            <button class="btn btn-primary mb-3 mt-3" (click)="storing(this.formGroup.value)">Submit Feedback</button>
+        </form>
+    </div>
+</div>

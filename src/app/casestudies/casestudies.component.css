@@ -1,0 +1,13 @@
+.heading {
+  font-family: "Times New Roman", Times, serif;
+  margin-top: 125px;
+}
+.heading1 {
+  color: darkblue;
+}
+.content {
+  text-align: left;
+  font-size: larger;
+  font-family: sans-serif;
+  color: gray;
+}

@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "Planned-Maintainence-System"
+  "defaultProject": "Planned-Maintainence-System",
+  "cli": {
+    "analytics": "dffee4b8-f709-414d-bdde-cffab4ba576c"
+  }
 }

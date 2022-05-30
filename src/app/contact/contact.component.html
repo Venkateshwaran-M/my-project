@@ -1,0 +1,47 @@
+<div class="body">
+    <form class="container" [formGroup]="formGroup">
+        <h1 class="hoverme">CONTACT DETAILS</h1>
+        <div class="form-group">
+            <label for="firstName">First Name*</label>
+            <input id="firstName" type="text" class="form-control" formControlName="firstName"
+                placeholder="FirstName Required" required />
+            <div class="help-block text-danger" *ngIf="firstName.touched">
+                <span *ngIf="firstName.errors?.required">
+                    First Name is REQUIRED!!!
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input id="lname" class="form-control" type="text" placeholder="Enter last name"
+                formControlName="lastName" />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" class="form-control" type="email" formControlName="email"
+                placeholder="Email (required)" />
+            <div class="help-block text-danger" *ngIf="email.touched">
+                <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location*</label>
+            <input type="text" id="location" class="form-control" placeholder="Enter Location"
+                formControlName="location" />
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" type="number" class="form-control" formControlName="mobile"
+                placeholder="Enter your phone #" />
+        </div>
+        <hr />
+        <button class="btn btn-primary button mb-3" (click)="storing(this.formGroup.value)">submit Details</button>
+        <!-- <button class="btn btn-secondary">submit Details</button> -->
+        <button class="btn btn1 btn-dark " (click)="cancel()">Clear form</button>
+
+    </form>
+</div>

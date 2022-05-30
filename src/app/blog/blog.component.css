@@ -1,0 +1,37 @@
+.container {
+  background-color: azure;
+  margin-bottom: 20px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-repeat: no-repeat;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
+.grid-item:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 1s ease-in;
+  border-radius: 2px;
+}
+.font {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn1 {
+  margin-left: 5px;
+}
+@media (max-width: 524px) {
+  .grid-items {
+    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 500px) {
+  .grid-items {
+    background-repeat: no-repeat;
+    grid-template-columns: 1fr;
+  }
+}

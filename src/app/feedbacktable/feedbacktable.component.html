@@ -1,0 +1,25 @@
+<section>
+    <h1>Our customers feedback so far</h1>
+    <table class="table table-hover table-responsive">
+        <thead>
+            <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Feedback</th>
+                <th scope="col">Ratings</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let user of alluserData">
+                <td>{{user.firstName}}</td>
+                <td>{{user.product}}</td>
+                <td>{{user.feedback}}</td>
+                <td>{{user.rating}}</td>
+                <!-- <td><a><button (click)="erase(user._id,user._rev)">Delete</button></a></td> -->
+            </tr>
+            <button class="btn btn-info" (click)="back()">Back</button>
+
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,29 @@
+<div class="container margin">
+    <h1 style="text-align: center;">LOG-IN TO SHIPMATE ACCOUNT</h1>
+
+    <form [formGroup]="formGroup">
+        <div class="form-outline mb-4">
+            <input type="email" id="form2Example1" formControlName="email" class="form-control" />
+            <label class="form-label" for="form2Example1">Email address</label>
+
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="password" id="form2Example2" class="form-control" formControlName="password" />
+            <label class="form-label" for="form2Example2">Password</label>
+        </div>
+
+
+
+        <button type="button" class="btn btn-primary btn-block margin1 mb-4"
+            (click)="login(this.formGroup.value)">LOG-in</button>
+        <button class="btn mb-4 btn-dark " (click)="cancel()">CANCEL</button>
+
+
+        <div class="text-center">
+            <p>Not a member? <a routerLink="/register">Register</a></p>
+
+        </div>
+        <p>Admin login:<a routerLink="/admin">Administration</a></p>
+    </form>
+</div>

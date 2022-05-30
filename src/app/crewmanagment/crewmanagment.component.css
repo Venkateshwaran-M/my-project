@@ -1,0 +1,38 @@
+.margin {
+  margin-top: 125px;
+}
+img {
+  width: 100%;
+}
+
+.heading {
+  font-weight: bolder;
+  font-size: 50px;
+  color: white;
+  position: absolute;
+  top: 40%;
+  left: 5%;
+}
+.heading-1 {
+  margin-top: 25px;
+  font-weight: bolder;
+  font-size: 50px;
+
+  color: darkblue;
+}
+.context,
+li {
+  color: gray;
+  font-size: larger;
+  margin-top: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+}
+.header {
+  font-weight: bold;
+  color: darkblue;
+}
+.background {
+  background-color: lightgray;
+}

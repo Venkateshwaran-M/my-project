@@ -1,0 +1,15 @@
+.margin {
+  margin-top: 150px;
+  width: 50%;
+  background-color: aliceblue;
+  /* background-color: #242582; */
+}
+.margin1 {
+  margin-right: 10px;
+  border-radius: 0%;
+}
+.margin1:hover {
+  border-radius: 25px;
+  transition: 1s ease-in-out;
+  background-color: black;
+}

@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#e3f2fd; ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/images/Shipmatelogo-removebg-preview.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active anchor" aria-current="page" href="">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="true">
+                        Products
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" routerLink="shipmanagement">Ship Management System</a></li>
+                        <li><a class="dropdown-item" routerLink="inventory">Ship Inventory Management Software</a></li>
+                        <li><a class="dropdown-item" routerLink="vessel">Vessel Performance Monitoring System</a></li>
+                        <li><a class="dropdown-item" routerLink="document">Ship document management system</a></li>
+                        <li><a class="dropdown-item" routerLink="crew">Crew management and Payroll</a></li>
+                        <li><a class="dropdown-item" routerLink="stores">Stores and Procurment Management System</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="about">About</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link active" routerLink="contact">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="case-studies">Case Studies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="careers">Careers</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" routerLink="blog">Book a product</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link active" routerLink="user-review">User reviews</a>
+                </li>
+
+            </ul>
+            <hr>
+
+            <button class="btn btn-success margin" routerLink="log-in">log-in</button>
+
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                class="btn btn-primary margin d-flex">Request a demo</button>
+
+
+        </div>
+    </div>
+</nav>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Get a free <i>SHIPMATE</i> demo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="formGroup" (ngSubmit)="storing(this.formGroup.value)">
+                    <div class="mb-3">
+                        <label for="exampleInputFirstName1" class="form-label">First Name*</label>
+                        <input type="text" class="form-control" formControlName="firstName" id="exampleInputFirstName1"
+                            aria-describedby="emailHelp">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputLastName" class="form-label">Last Name*</label>
+                        <input type="text" formControlName="lastName" class="form-control" id="exampleInputLastName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address*</label>
+                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputmobile1" class="form-label">Mobile Number*</label>
+                        <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputleadsource1" class="form-label">Lead Source*</label>
+                        <input type="text" formControlName="leadsource" class="form-control"
+                            id="exampleInputleadsource1">
+                    </div>
+                    <hr>
+                    <h1>Products You may like to try*</h1>
+                    <p>Ship Management System</p>
+                    <p>Ship Inventory Management Software </p>
+                    <p>Vessel Performance Monitoring System</p>
+                    <p>Ship Document Management System</p>
+                    <p>Crew Management and Payroll</p>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Enter a product*</label>
+                        <input type="text" formControlName="product" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="storing(this.formGroup.value)" class="btn btn-primary">Send message
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
