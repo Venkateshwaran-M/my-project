@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
@@ -29,7 +30,7 @@ export class BlogComponent implements OnInit {
   viewVal: any=[];
   
   sample: any;
-  constructor(private fb:FormBuilder, private api: ApiService, private route:Router) { 
+  constructor(private fb:FormBuilder, private toastr:ToastrService, private api: ApiService, private route:Router) { 
     
       this.formGroup=this.fb.group({
         name:[this.userdetails.name],
@@ -53,8 +54,8 @@ export class BlogComponent implements OnInit {
     this.sample=this.temp.rows;
     this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='addproduct').map((x:any)=>x.doc)
        
-     },rej=>{
-       alert("cannot post data"+rej);
+     },_rej=>{
+       this.toastr.error("Cannot view products")
      });
     }
 get name(){
@@ -82,14 +83,15 @@ storing(doc:any, id:any){
     console.log(res);
     this.alluser=res;
     this.alluserData=this.alluser.docs;
-    alert('Your product booking request has been received');
+    this.toastr.success('Your product booking request has been received');
     this.type="order"
     this.api.postByTypedUser("freshers_sample",this.type,this.id).subscribe(res=>{
       console.log(res)
       console.log(this.id)
     })
   },rej=>{
-    alert('Something Bad Happened'+rej);
+    this.toastr.error("Kindly fill the form")
+    // alert('Something Bad Happened'+rej);
     console.log(rej);
   });
  

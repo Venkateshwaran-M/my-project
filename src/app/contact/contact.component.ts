@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent  {
   formGroup: FormGroup;
   userdetails: any = {
     firstName: '',
@@ -29,11 +29,6 @@ export class ContactComponent implements OnInit {
       type:[this.userdetails.type]
     });
   }
-
-
-  ngOnInit(): void {
-  }
-  
   get firstName() {
     return this.formGroup.get('firstName')!;
   } get lastName() {
@@ -55,8 +50,8 @@ storing(Formvalue:any)
     console.log(Formvalue);
     console.log(res);
   
-},rej=>{
-  this.toastr.error("Cannot Post Data until field are empty")
+},_rej=>{
+  this.toastr.error("Cannot Post Data until field are empty",_rej)
 });
 }
 fetch(){

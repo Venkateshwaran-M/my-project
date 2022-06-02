@@ -71,4 +71,7 @@ export class AddProductComponent implements OnInit {
  navigate(){
    this.route.navigate(['Demouser'])
  }
+ contactdetails(){
+   this.route.navigate(['usercontactdetails'])
+ }
   }

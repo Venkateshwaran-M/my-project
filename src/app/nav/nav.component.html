@@ -95,15 +95,18 @@
                         <label for="exampleInputmobile1" class="form-label">Mobile Number*</label>
                         <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
                     </div>
-                    <!-- <div class="mb-3">
-                        <label for="exampleInputleadsource1" class="form-label">Lead Source*</label>
-                        <input type="text" formControlName="leadsource" class="form-control"
-                            id="exampleInputleadsource1">
-                    </div> -->
+
                     <label>Lead Source*</label>
                     <select class="form-select" aria-label="Default select example" formControlName="leadsource">
-                        <option *ngFor="let user of viewVal" value="{{user.addleadsource}}">{{user.addleadsource}}
-                        </option>
+                        <option value="Website">Website</option>
+                        <option value="Google Search">Google Search</option>
+                        <option value="Google Ads">Google Ads</option>
+                        <option value="Relation">Relation</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="Direct Mail">Direct Mail</option>
+
 
                     </select>
                     <hr>

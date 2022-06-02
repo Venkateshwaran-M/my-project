@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 @Component({
-  selector: 'app-demorequest',
-  templateUrl: './demorequest.component.html',
-  styleUrls: ['./demorequest.component.css']
+  selector: 'app-storecontactdetails',
+  templateUrl: './storecontactdetails.component.html',
+  styleUrls: ['./storecontactdetails.component.css']
 })
-export class DemorequestComponent implements OnInit {
+export class StorecontactdetailsComponent implements OnInit {
+  temp:any;
   sample: any;
-  temp: any;
   viewVal: any;
 
   constructor(private api:ApiService, private toastr:ToastrService) { }
@@ -18,7 +18,7 @@ export class DemorequestComponent implements OnInit {
       console.log(res);
       this.temp=res
       this.sample=this.temp.rows;
-      this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='demo').map((x:any)=>x.doc)
+      this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='Additionalinfo').map((x:any)=>x.doc)
   },rej=>{
     this.toastr.error("cannot post data"+rej);
   });

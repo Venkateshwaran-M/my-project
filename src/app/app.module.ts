@@ -34,6 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AddProductComponent } from './addproduct/addproduct.component';
 import { UserbookedstatusComponent } from './userbookedstatus/userbookedstatus.component';
 import { DemorequestComponent } from './demorequest/demorequest.component';
+import { StorecontactdetailsComponent } from './storecontactdetails/storecontactdetails.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path:'addproduct',component:AddProductComponent},
   {path:'userbookedstatus',component:UserbookedstatusComponent},
   {path:'Demouser',component:DemorequestComponent},
+  {path:'usercontactdetails',component:StorecontactdetailsComponent},
 
 ];
 
@@ -83,7 +85,8 @@ const routes: Routes = [
     AdminComponent,
     AddProductComponent,
     UserbookedstatusComponent,
-    DemorequestComponent
+    DemorequestComponent,
+    StorecontactdetailsComponent
   ],
   imports: [
     BrowserModule,

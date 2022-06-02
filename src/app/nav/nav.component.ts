@@ -80,21 +80,6 @@ storing(formdata:NgForm){
     this.toastr.error("Required Fields are Empty")
     console.log(rej);
   });
- 
-  // this.api.get("freshers_sample").subscribe(res=>{
-  //   this.alluser=res;
-  //   console.log(res);
-  //   this.alluser=this.alluser.rows;
-  //   this.alluserData=this.alluser.map((el:any)=>el.doc);
-  //   console.log(this.alluserData[0]);
-  //   for (const array in this.alluserData){
-  //     console.log(this.alluserData[array])
-  //   }
-  //   alert("data got successful");
-  //   this.userdetails.reset();
-  // },rej=>{
-  //   alert("cannot post data"+rej);
-  // });
 }
 fetch(){
   this.api.get(this.db).subscribe((data)=>{

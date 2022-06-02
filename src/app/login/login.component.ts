@@ -34,6 +34,7 @@ db="freshers_sample";
    }
 
   ngOnInit(): void {
+    
   }
 
 login(obj:any){
@@ -55,14 +56,13 @@ this.localStorage=localStorage.setItem('userId',JSON.stringify(this.loginUser))
      
      if((data.docs[0].password == this.password && data.docs[0].email==this.email))
      {
+      this.route.navigate(['blog']);
+
       this.toastr.success("Login Success")
 
-      this.route.navigate(['blog']);
       localStorage.setItem('email',JSON.stringify(this.email))
      }
      else{
-      // this.toastr.warning("Hi Patient wrong authentication,Please enter correct Email and Password");
-      // this.toastr.error("kindly check your email and password");
       alert("If you are new to shipmate please signup");
      }
     })
