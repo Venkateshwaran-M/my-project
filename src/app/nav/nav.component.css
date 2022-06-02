@@ -25,7 +25,7 @@ span {
 }
 
 .navbar {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   opacity: 95%;
   height: 125x;
