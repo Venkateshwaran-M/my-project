@@ -25,8 +25,12 @@ export class BlogComponent implements OnInit {
   type: string | undefined;
   data: any;
   localObject: any;
+  temp: any;
+  viewVal: any=[];
+  
+  sample: any;
   constructor(private fb:FormBuilder, private api: ApiService, private route:Router) { 
-    {
+    
       this.formGroup=this.fb.group({
         name:[this.userdetails.name],
         email:[this.userdetails.email],
@@ -37,32 +41,38 @@ export class BlogComponent implements OnInit {
         
       })
     } 
-  }
+  
   ngOnInit(): void {
    let localObject:any=localStorage.getItem('userId')
    console.log(localObject);
    let temp = JSON.parse(localObject.toString());
    this.id=temp['_id'] 
-  }
+   this.api.get("freshers_sample").subscribe(res=>{
+    console.log(res);
+    this.temp=res
+    this.sample=this.temp.rows;
+    this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='addproduct').map((x:any)=>x.doc)
+       
+     },rej=>{
+       alert("cannot post data"+rej);
+     });
+    }
 get name(){
   return this.formGroup.get('name')!;
-
 }
 get email(){
   return this.formGroup.get('email')!; 
 }
 get mobile(){
   return this.formGroup.get('mobile')!;
-  
 }
 get address(){
-  return this.formGroup.get('address')!;
-  
+  return this.formGroup.get('address')!; 
 }
 get product(){
-  return this.formGroup.get('product')!;
-  
+  return this.formGroup.get('product')!; 
 }
+
 storing(doc:any, id:any){
 
   console.log(doc);
@@ -82,8 +92,16 @@ storing(doc:any, id:any){
     alert('Something Bad Happened'+rej);
     console.log(rej);
   });
- this.route.navigate(['bookinfo'])
+ 
+ 
+
+  
+  
+ 
 }
+
+
+
 cancel(){
   this.formGroup.reset();
 }

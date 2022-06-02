@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin',
@@ -13,11 +14,12 @@ export class AdminComponent implements OnInit {
   admin:any={
     email:'',
     password:'',
+    type:'adminlogin'
   };
   db="freshers_sample";
   email: any;
   password: any;
-  constructor(private fb: FormBuilder, private api:ApiService, private route:Router) { 
+  constructor(private fb: FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) { 
     {
       this.formGroup = this.fb.group({
         email:[this.admin.email],
@@ -37,11 +39,11 @@ adminlogin(obj:any){
   this.api.checkuserlogin(this.email,this.password).subscribe(data=>{
     console.log(data);
     if((data.docs[0].password == this.password && data.docs[0].email==this.email)){
-      alert('Admin Login Success');
-      this.route.navigate(['purchase']);
+      this.toastr.success('Admin Login Success');
+      this.route.navigate(['addproduct']);
     }
-    else{
-      alert('Login Failed')
+    else {
+      this.toastr.error('Login Failed Kindly check email and password')
     }
   })
 

@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Users booked for demo products so far</h1>
+    <table class="table table-hover table-responsive">
+
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Mobile Number</th>
+                <th scope="col">Lead Source</th>
+
+                <th scope="col">Product</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let user of viewVal">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.mobile}}</td>
+                <td>{{user.leadsource}}</td>
+                <td>{{user.product}}</td>
+
+                <!-- <td><a><button (click)="erase(user._id,user._rev)">Delete</button></a></td> -->
+            </tr>
+            <!-- <button class="btn btn-info" (click)="back()">Back</button> -->
+
+        </tbody>
+    </table>
+</div>

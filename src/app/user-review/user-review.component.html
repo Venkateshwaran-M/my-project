@@ -1,21 +1,50 @@
 <div class="body">
     <div class="container">
+        <section>
+            <h1>Our customers feedback so far</h1>
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col"> Name</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Feedback</th>
+                        <th scope="col">Ratings</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let user of viewVal">
+                        <td>{{user.Name}}</td>
+                        <td>{{user.productname}}</td>
+                        <td>{{user.feedback}}</td>
+                        <td>{{user.rating}}</td>
+                        <!-- <td><a><button (click)="erase(user._id,user._rev)">Delete</button></a></td> -->
+                    </tr>
+                    <!-- <button class="btn btn-info" (click)="back()">Back</button> -->
+
+                </tbody>
+            </table>
+        </section>
         <h1 style="text-align: center;">USER REVIEWS ABOUT OUR PRODUCTS</h1>
         <p style="text-align: center;">Please provide your valuable feedback here!!!</p>
         <form class="container" [formGroup]="formGroup">
             <div class="form-group">
-                <label for="firstName">User Name*</label>
-                <input id="firstName" class="form-control" formControlName="firstName" placeholder="user name Required"
+                <label for="firstName">Name*</label>
+                <input id="firstName" class="form-control" formControlName="Name" placeholder="user name Required"
                     required />
-                <div class="help-block text-danger" *ngIf="firstName.touched">
-                    <span *ngIf="firstName.errors?.required">
-                        User Name is REQUIRED!!!
+                <div class="help-block text-danger" *ngIf="Name.touched">
+                    <span *ngIf="Name.errors?.required">
+                        Name is REQUIRED!!!
                     </span>
                 </div>
             </div>
 
             <label>Choose a product*</label>
-            <select class="form-select" aria-label="Default select example" formControlName="product">
+            <select class="form-select" aria-label="Default select example" formControlName="productname">
+                <option *ngFor="let user of dropdown" value="{{user.addproduct}}">{{user.addproduct}}</option>
+
+            </select>
+            <!-- <select class="form-select" aria-label="Default select example" formControlName="productname">
                 <option selected>Choose a shipmate product</option>
                 <option value="Ships management System">Ships management System</option>
                 <option value="Ship Inventory Management Software">Ship Inventory Management Software</option>
@@ -23,17 +52,13 @@
                 </option>
                 <option value="Ship Document Maintainence System">Ship Document Maintainence System</option>
                 <option value="Crew Management and Payroll">Crew Management and Payroll </option>
-            </select>
+            </select> -->
 
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Your Feedback!!!</label>
                 <textarea class="form-control" formControlName="feedback" id="exampleFormControlTextarea1"
                     rows="3"></textarea>
-                <div class="help-block text-danger" *ngIf="feedback.touched">
-                    <span *ngIf="feedback.errors?.required">
-                        User Name is REQUIRED!!!
-                    </span>
-                </div>
+
             </div>
             <label for="exampleFormControlTextarea1"> Please give a rating</label><br>
 

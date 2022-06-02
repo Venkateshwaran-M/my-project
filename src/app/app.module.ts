@@ -14,7 +14,7 @@ import { BlogComponent } from './blog/blog.component';
 import { CareersComponent } from './careers/careers.component';
 import { FooterComponent } from './footer/footer.component';
 import { CasestudiesComponent } from './casestudies/casestudies.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ShipmanagementsystemComponent } from './shipmanagementsystem/shipmanagementsystem.component';
 import { CrewmanagmentComponent } from './crewmanagment/crewmanagment.component';
@@ -25,10 +25,15 @@ import { RegisterComponent } from './register/register.component';
 import { FeedbacktableComponent } from './feedbacktable/feedbacktable.component';
 import { StoresComponent } from './stores/stores.component';
 import { AdminComponent } from './admin/admin.component';
-import { PurchasedetailComponent } from './purchasedetail/purchasedetail.component';
-import { BookinginfoComponent } from './bookinginfo/bookinginfo.component';
+import { HttpCallInterceptor } from 'src/interceptor';
 
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ToastrModule } from 'ngx-toastr';
+import { AddProductComponent } from './addproduct/addproduct.component';
+import { UserbookedstatusComponent } from './userbookedstatus/userbookedstatus.component';
+import { DemorequestComponent } from './demorequest/demorequest.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -48,8 +53,9 @@ const routes: Routes = [
   {path:'feedback',component:FeedbacktableComponent},
   {path:'stores',component:StoresComponent},
   {path:'admin',component:AdminComponent},
-  {path:'purchase',component:PurchasedetailComponent},
-  {path:'bookinfo',component:BookinginfoComponent}
+  {path:'addproduct',component:AddProductComponent},
+  {path:'userbookedstatus',component:UserbookedstatusComponent},
+  {path:'Demouser',component:DemorequestComponent},
 
 ];
 
@@ -75,19 +81,26 @@ const routes: Routes = [
     FeedbacktableComponent,
     StoresComponent,
     AdminComponent,
-    PurchasedetailComponent,
-    BookinginfoComponent,
+    AddProductComponent,
+    UserbookedstatusComponent,
+    DemorequestComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
      RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpCallInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

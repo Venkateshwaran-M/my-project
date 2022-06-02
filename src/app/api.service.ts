@@ -21,40 +21,52 @@ export class ApiService {
       'Authorization': this.basicAuth
     })
   };
-
+// to add data to database
     add(db: string, doc: object): Observable<{}> {
       const url = this.url + db;
       return this.http.post(url, doc, this.httpOptions);
     }
+//Storing data through node
 storedata(formvalue:any)
 {
 console.log(formvalue);
-  // return this.http.post<any>('http://localhost:8000/mail/',formvalue);
   return this.http.post<any>('http://localhost:8000/postdata/',formvalue);
      }
+
+//Get all data from database
 get(db:string): Observable<{}> {
       const url = this.url + db + '/_all_docs?include_docs=true';
       return this.http.get(url, this.httpOptions);
     }
+  // get all data by using type  
+ gettingByType(db:string, type:string): Observable<{}>{
+  const url = this.url + db + '/'+type;
+  return this.http.get(url, this.httpOptions);
+
+ }   
+ // Getting docs by ID
 getDocsByID(db:string, id:string): Observable<{}>{
       const url = this.url + db + '/'+id;
       return this.http.get(url, this.httpOptions);
     }
+    // To delete data in db
 deleteData(id: any, rev: any): Observable<{}> {
       const urld = this.url + 'freshers_sample/' + id + '/?rev=' + rev;
       return this.http.delete(urld, this.httpOptions);
     }
-// getByType(type:string, fields:any){
-//   let url =this.url + 'freshers_sample/_find'
-//   let typeData = {
-//     selector : {
-//       type: type
-//     },
-//     fields: fields
-//   };
-//   return this.http.post(url, typeData, this.httpOptions)
+    //get docs by type
+getByType(type:string, fields:any){
+  let url =this.url + 'freshers_sample/_find'
+  let typeData = {
+    selector : {
+      type: type
+    },
+    fields: fields
+  };
+  return this.http.post(url, typeData, this.httpOptions)
 
-// }
+}
+
 postByTypedUser(type:string, fields:any,id:any){
   let url =this.url + 'freshers_sample/_find'
   let typeData = {
@@ -66,9 +78,9 @@ postByTypedUser(type:string, fields:any,id:any){
   };
   return this.http.post(url, typeData, this.httpOptions)
 }
+//login function using node
 checkuserlogin(email:any,password:any)
  {
-  // return this.http.get<any>('http://localhost:8000/getdata/:id'+email);
   return this.http.get<any>('http://localhost:8000/getdata/'+email);
  }
-  }
+}

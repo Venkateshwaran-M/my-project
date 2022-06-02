@@ -1,0 +1,45 @@
+<div class="body">
+    <div class="container">
+        <h1>Admin Access to add a new product</h1>
+        <form [formGroup]="formGroup">
+            <div class="form-group">
+                <label for="addproduct">Product</label>
+                <input id="addproduct" class="form-control" formControlName="addproduct"
+                    placeholder="FirstName Required" required />
+
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input id="price" class="form-control" type="number" formControlName="price" required />
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input id="description" class="form-control" type="text" formControlName="description" required />
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input id="image" class="form-control" type="url" formControlName="image" required />
+            </div>
+
+            <div class="form-group">
+                <label for="leadsource">leadsource</label>
+                <input id="addproduct" class="form-control" formControlName="addleadsource"
+                    placeholder="Enter lead source" />
+
+            </div>
+            <button class="btn btn-primary button mb-3 mr-3 mt-3" (click)="show(this.formGroup.value)">Add
+                Product</button><br>
+            <button class="btn btn-info button mb-3 mt-3" (click)="router()">View Booked
+                users</button><br>
+            <button class="btn btn-warning button mb-3 mt-3" (click)="navigate()">Requested For demo</button>
+
+        </form>
+        <!-- <form [formGroup]="formGroup">
+            
+            <button class="btn btn-primary button mb-3 mt-3">Requested For demo</button>
+
+        </form> -->
+    </div>
+</div>

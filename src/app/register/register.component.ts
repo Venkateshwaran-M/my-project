@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import{ApiService} from '../api.service' 
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -55,45 +54,17 @@ export class RegisterComponent implements OnInit {
   }
   storing(Formvalue:any)
   {
-
     console.log("form",Formvalue);
     this.api.storedata(Formvalue).subscribe((data)=>{
       alert("Sign-up Succesfully")
-
-    //   this.regUser=data.docs[0]
-    //   console.log(this.regUser._id)
-    //   this.localStorage=localStorage.setItem('userId',JSON.stringify(this.regUser))
-    //   let localObject:any=this.localStorage.getItem('userId')
-    //   console.log(localObject);
-    //   let temp = JSON.parse(localObject.toString());
-    //   console.log(temp['_id'])
-      console.log("data returned from server",data);
-      this.route.navigate(['log-in']);
-      // this.api.add("freshers_sample",this.formGroup.value).subscribe(res => {
-      //   console.log(Formvalue);
-      //   console.log(res);
-      //   this.alluser=res;
-      //   alert('Data inserted');
-        
-
-      // }
-      // ,rej => {
-      //   alert('Something Bad happened'+ rej);
-      //   console.log(rej);
-      // });
+      this.route.navigate(['log-in']); 
+      console.log("data returned from server",data);  
+    },err=>{
+      console.log(err)
     })
-  //  this.api.getByType("freshers_sample",this.formGroup.value).subscribe(res=>{
-      // console.log(Formvalue);
-  //    console.log(res);
-   // })
+ 
   }
 
-
-fetch() {
-  this.api.get(this.db).subscribe((data) => {
-    console.log("Data are fetched",data);
-  })
-}
 }
 
  

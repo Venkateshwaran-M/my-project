@@ -75,12 +75,17 @@
                     <div class="mb-3">
                         <label for="exampleInputFirstName1" class="form-label">First Name*</label>
                         <input type="text" class="form-control" formControlName="firstName" id="exampleInputFirstName1"
-                            aria-describedby="emailHelp">
+                            aria-describedby="emailHelp" required>
+                        <div class="help-block text-danger" *ngIf="firstName.touched">
+                            <span *ngIf="firstName.errors?.required">
+                                First Name is REQUIRED!!!
+                            </span>
+                        </div>
 
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputLastName" class="form-label">Last Name*</label>
-                        <input type="text" formControlName="lastName" class="form-control" id="exampleInputLastName">
+                        <input type="text" formControlName="lastname" class="form-control" id="exampleInputLastName">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address*</label>
@@ -90,22 +95,25 @@
                         <label for="exampleInputmobile1" class="form-label">Mobile Number*</label>
                         <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="exampleInputleadsource1" class="form-label">Lead Source*</label>
                         <input type="text" formControlName="leadsource" class="form-control"
                             id="exampleInputleadsource1">
-                    </div>
+                    </div> -->
+                    <label>Lead Source*</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="leadsource">
+                        <option *ngFor="let user of viewVal" value="{{user.addleadsource}}">{{user.addleadsource}}
+                        </option>
+
+                    </select>
                     <hr>
-                    <h1>Products You may like to try*</h1>
-                    <p>Ship Management System</p>
-                    <p>Ship Inventory Management Software </p>
-                    <p>Vessel Performance Monitoring System</p>
-                    <p>Ship Document Management System</p>
-                    <p>Crew Management and Payroll</p>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Enter a product*</label>
-                        <input type="text" formControlName="product" class="form-control" id="exampleInputPassword1">
-                    </div>
+                    <label>Enter a Product*</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="product">
+                        <option *ngFor="let user of viewVal" value="{{user.addproduct}}">{{user.addproduct}}
+                        </option>
+
+                    </select>
+
 
                 </form>
             </div>

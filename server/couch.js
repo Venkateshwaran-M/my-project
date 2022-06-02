@@ -4,11 +4,13 @@ const cors = require('cors');
 const dbconnection = require('./nano');
 const app = express();
 const port = 8000;
-const nodemail = require('nodemailer');
-const setmail = require('./mail')
+// const nodemail = require('nodemailer');
+// const setmail = require('./mail')
 
 
-
+process.on('uncaughtException', function (exception) {
+    console.log(exception)
+})
 
 app.use(cors({
     origin: 'http://localhost:4200'
@@ -44,19 +46,25 @@ app.post('/postdata', function (req, res) {
     console.log("data from angular....", objectnew);
     dbconnection.fresher.insert(objectnew).then((data) => {
         console.log("Data inserted Successfully", data);
-    });
+        res.send(data);
+    }).catch((err => {
+        console.log("error", err);
+        res.status(400).send({
+            message: err
+        })
+        // });
+    }));
 });
-app.post('/mail', (request, response, next) => {
+// app.post('/mail', (request, response, next) => {
 
-    var object = {
-        firstname: request.body.firstName,
-        lastName: request.body.lastName,
-        email: request.body.email,
-        password: request.body.password,
-    }
-    setmail.getemail(object);
-    console.log(object);
-})
+//     var object = {
+//         firstname: request.body.firstName,
+//         lastName: request.body.lastName,
+//         email: request.body.email,
+//         password: request.body.password,
+//     }
+//     console.log(object);
+// })
 
 app.listen(port, (err) => {
     if (err) {

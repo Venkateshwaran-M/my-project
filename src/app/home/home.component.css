@@ -34,7 +34,7 @@ p {
 }
 .box {
   margin: 30px;
-  background-color: aliceblue;
+  background-color: #f2f3f3;
   align-items: center;
   border-radius: 5px;
 }

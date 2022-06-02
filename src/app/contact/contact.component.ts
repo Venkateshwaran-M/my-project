@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -18,15 +19,14 @@ export class ContactComponent implements OnInit {
     type:'Additionalinfo'
   };
   db="freshers_sample";
-  constructor(private fb: FormBuilder, private api:ApiService) {
+  constructor(private fb: FormBuilder, private toastr:ToastrService, private api:ApiService) {
     this.formGroup = this.fb.group({
       firstName: [this.userdetails.firstName],
       lastName: [this.userdetails.lastName],
       email: [this.userdetails.email],
       location: [this.userdetails.location],
-      // password: [this.userdetails.password],
       mobile: [this.userdetails.mobile],
-      Additionalinfo:[this.userdetails.Additionalinfo]
+      type:[this.userdetails.type]
     });
   }
 
@@ -50,12 +50,14 @@ export class ContactComponent implements OnInit {
   }
 storing(Formvalue:any)
 {
-  console.log(Formvalue);
-  this.api.storedata(Formvalue).subscribe((data)=>{
-    alert("Your details has been submitted successfully, Thank you☺");
-
-    console.log("Data returned from server",data);
-  })
+   this.api.add("freshers_sample",this.formGroup.value).subscribe(res => {
+    this.toastr.success("Data stored")
+    console.log(Formvalue);
+    console.log(res);
+  
+},rej=>{
+  this.toastr.error("Cannot Post Data until field are empty")
+});
 }
 fetch(){
   this.api.get(this.db).subscribe((data)=>{

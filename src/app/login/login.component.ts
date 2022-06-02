@@ -13,6 +13,7 @@ user:any={
   email:'',
   password:'',
   type:'login',
+
 };
 
 db="freshers_sample";
@@ -21,6 +22,7 @@ db="freshers_sample";
   loginUser: any;
   localStorage: any;
   myObject: any;
+  toastr: any;
   constructor(private fb: FormBuilder, private api:ApiService, private route:Router) {
     {
       this.formGroup = this.fb.group({
@@ -44,7 +46,7 @@ login(obj:any){
  this.api.checkuserlogin(this.email,this.password).subscribe(data=>{
   this.loginUser=data.docs[0]
   console.log(this.loginUser._id)
-  this.localStorage=localStorage.setItem('userId',JSON.stringify(this.loginUser))
+this.localStorage=localStorage.setItem('userId',JSON.stringify(this.loginUser))
  let localObject:any=localStorage.getItem('userId')
  console.log(localObject);
  let temp = JSON.parse(localObject.toString());
@@ -53,14 +55,14 @@ login(obj:any){
      
      if((data.docs[0].password == this.password && data.docs[0].email==this.email))
      {
-       alert("success!!")
-      //  toastr.success('Have fun storming the castle!', 'Miracle Max Says')
- 
+      this.toastr.success("Login Success")
+
       this.route.navigate(['blog']);
+      localStorage.setItem('email',JSON.stringify(this.email))
      }
      else{
       // this.toastr.warning("Hi Patient wrong authentication,Please enter correct Email and Password");
-      alert("kindly check your email and password");
+      // this.toastr.error("kindly check your email and password");
       alert("If you are new to shipmate please signup");
      }
     })
