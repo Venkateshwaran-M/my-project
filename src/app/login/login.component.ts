@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,19 +23,18 @@ db="freshers_sample";
   loginUser: any;
   localStorage: any;
   myObject: any;
-  toastr: any;
-  constructor(private fb: FormBuilder, private api:ApiService, private route:Router) {
+  constructor(private fb: FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) {
     {
       this.formGroup = this.fb.group({
-        email:[this.user.email, [Validators.required, Validators.pattern("[a-zA-Z0-9]*@gmail.com")]],
-        password:[this.user.password, [Validators.required, Validators.pattern("[a-zA-z@_]{6,}")]],
+        email:[this.user.email],
+        password:[this.user.password],
         type:[this.user.type]
       });
     }
    }
 
   ngOnInit(): void {
-    
+
   }
 
 login(obj:any){
@@ -63,7 +63,7 @@ this.localStorage=localStorage.setItem('userId',JSON.stringify(this.loginUser))
       localStorage.setItem('email',JSON.stringify(this.email))
      }
      else{
-      alert("If you are new to shipmate please signup");
+      this.toastr.error("If you are new to shipmate please signup");
      }
     })
   
@@ -135,46 +135,3 @@ this.localStorage=localStorage.setItem('userId',JSON.stringify(this.loginUser))
 
 
 
-// get email(){
-//   return this.formGroup.get('email')!;
-// }
-// get password(){
-//   return this.formGroup.get('password')!;
-// }
-// storing(Formvalue:any){
-//   this.api.checkuserlogin(Formvalue.email).subscribe((data)=>{
-   
-//     console.log(data);
-   
-//     if((data.docs[0].email == Formvalue.email))
-//     // if((data.email == Formvalue.email))
-//     {
-//      alert("userName Already Exists");
-//      window.location.reload();
-      
-//     }
-//     else{
-//      alert("Success");
-//      this.api.storedata(Formvalue).subscribe((data)=>{
-//        alert('login success')
-//       console.log("data returned from server",data);
-//      })
-//   //  this.route.navigate(['schedule',Formvalue.email,Formvalue.password]);
-
-//     }
-//    }) 
-
-//   this.api.storedata(Formvalue).subscribe((data)=>{
-//     console.log("Login success",data);
-
-//   })
-
-// }
-
-
-// fetch(){
-//   this.api.get(this.db).subscribe((data)=>{
-//     // alert('Login success')
-//     console.log("Data has been fetched",data);
-//   })
-// }

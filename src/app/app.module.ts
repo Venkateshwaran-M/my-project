@@ -35,6 +35,7 @@ import { AddProductComponent } from './addproduct/addproduct.component';
 import { UserbookedstatusComponent } from './userbookedstatus/userbookedstatus.component';
 import { DemorequestComponent } from './demorequest/demorequest.component';
 import { StorecontactdetailsComponent } from './storecontactdetails/storecontactdetails.component';
+import { ViewuserComponent } from './viewuser/viewuser.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -58,6 +59,7 @@ const routes: Routes = [
   {path:'userbookedstatus',component:UserbookedstatusComponent},
   {path:'Demouser',component:DemorequestComponent},
   {path:'usercontactdetails',component:StorecontactdetailsComponent},
+  {path:'viewuser',component:ViewuserComponent},
 
 ];
 
@@ -86,7 +88,8 @@ const routes: Routes = [
     AddProductComponent,
     UserbookedstatusComponent,
     DemorequestComponent,
-    StorecontactdetailsComponent
+    StorecontactdetailsComponent,
+    ViewuserComponent
   ],
   imports: [
     BrowserModule,

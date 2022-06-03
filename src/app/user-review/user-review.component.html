@@ -5,10 +5,10 @@
             <table class="table table-hover table-responsive">
                 <thead>
                     <tr>
-                        <th scope="col"> Name</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Feedback</th>
-                        <th scope="col">Ratings</th>
+                        <th scope="col"><strong>Name</strong> </th>
+                        <th scope="col"><strong>Product Name</strong></th>
+                        <th scope="col"><strong>Feedback</strong></th>
+                        <th scope="col"><strong>Rating</strong></th>
                     </tr>
                 </thead>
 
@@ -18,18 +18,16 @@
                         <td>{{user.productname}}</td>
                         <td>{{user.feedback}}</td>
                         <td>{{user.rating}}</td>
-                        <!-- <td><a><button (click)="erase(user._id,user._rev)">Delete</button></a></td> -->
                     </tr>
-                    <!-- <button class="btn btn-info" (click)="back()">Back</button> -->
 
                 </tbody>
             </table>
         </section>
-        <h1 style="text-align: center;">USER REVIEWS ABOUT OUR PRODUCTS</h1>
+        <h1 style="text-align: center;">User Feedback Section</h1>
         <p style="text-align: center;">Please provide your valuable feedback here!!!</p>
         <form class="container" [formGroup]="formGroup">
             <div class="form-group">
-                <label for="firstName">Name*</label>
+                <strong> <label for="firstName">Name*</label></strong>
                 <input id="firstName" class="form-control" formControlName="Name" placeholder="user name Required"
                     required />
                 <div class="help-block text-danger" *ngIf="Name.touched">
@@ -39,28 +37,20 @@
                 </div>
             </div>
 
-            <label>Choose a product*</label>
+            <strong> <label>Choose a product*</label></strong>
             <select class="form-select" aria-label="Default select example" formControlName="productname">
                 <option *ngFor="let user of dropdown" value="{{user.addproduct}}">{{user.addproduct}}</option>
 
             </select>
-            <!-- <select class="form-select" aria-label="Default select example" formControlName="productname">
-                <option selected>Choose a shipmate product</option>
-                <option value="Ships management System">Ships management System</option>
-                <option value="Ship Inventory Management Software">Ship Inventory Management Software</option>
-                <option value="Vessel Performance and Management System">Vessel Performance and Management System
-                </option>
-                <option value="Ship Document Maintainence System">Ship Document Maintainence System</option>
-                <option value="Crew Management and Payroll">Crew Management and Payroll </option>
-            </select> -->
+
 
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Your Feedback!!!</label>
+                <strong><label for="exampleFormControlTextarea1">Your Feedback!!!</label></strong>
                 <textarea class="form-control" formControlName="feedback" id="exampleFormControlTextarea1"
                     rows="3"></textarea>
 
             </div>
-            <label for="exampleFormControlTextarea1"> Please give a rating</label><br>
+            <strong> <label for="exampleFormControlTextarea1"> Please give a rating</label></strong><br>
 
             <div class="form-check form-check-inline">
 

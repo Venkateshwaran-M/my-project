@@ -16,7 +16,6 @@ export class AddProductComponent implements OnInit {
     price:'',
     description:'',
     image:'',
-    addleadsource:'',
     type:'addproduct'
   
   }
@@ -30,7 +29,6 @@ export class AddProductComponent implements OnInit {
       price:[this.user.price],
       description:[this.user.desciption],
       image:[this.user.image],
-      addleadsource:[this.user.addleadsource],
       type:[this.user.type]
 
   });
@@ -51,15 +49,17 @@ export class AddProductComponent implements OnInit {
     return this.formGroup.get('addleadsource')!;
   }
   ngOnInit(): void {
+  
+  
   }
   
   show(formdata:NgForm){
     this.api.add("freshers_sample",this.formGroup.value).subscribe(res=>{
       this.toastr.success("The product has been added successfully")
       console.log(res);
-      //  this.route.navigate(['blog'])
       console.log(formdata)
       this.alluser=res;
+      window.location.reload();
     },rej=>{
       this.toastr.error("Something Went wrong")
     }

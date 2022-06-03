@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#e3f2fd; ">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#c6eeec; ">
+    <!--#e3f2fd;-->
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="../../assets/images/Shipmatelogo-removebg-preview.png" alt="">
@@ -42,9 +43,6 @@
                 <li class="nav-item">
                     <a class="nav-link active" routerLink="careers">Careers</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link active" routerLink="blog">Book a product</a>
-                </li> -->
                 <li class="nav-item">
                     <a class="nav-link active" routerLink="user-review">User reviews</a>
                 </li>
@@ -52,10 +50,10 @@
             </ul>
             <hr>
 
-            <button class="btn btn-success margin" routerLink="log-in">log-in</button>
 
             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 class="btn btn-primary margin d-flex">Request a demo</button>
+            <button class="btn btn-success margin bi bi-person-circle" routerLink="log-in"> log-in</button>
 
 
         </div>
@@ -67,13 +65,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Get a free <i>SHIPMATE</i> demo</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Get a free <strong> <em>SHIPMATE</em> </strong> demo</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+
                 <form [formGroup]="formGroup" (ngSubmit)="storing(this.formGroup.value)">
                     <div class="mb-3">
-                        <label for="exampleInputFirstName1" class="form-label">First Name*</label>
+                        <strong> <label for="exampleInputFirstName1" class="form-label">First Name*</label></strong>
                         <input type="text" class="form-control" formControlName="firstName" id="exampleInputFirstName1"
                             aria-describedby="emailHelp" required>
                         <div class="help-block text-danger" *ngIf="firstName.touched">
@@ -84,19 +83,23 @@
 
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputLastName" class="form-label">Last Name*</label>
+                        <strong> <label for="exampleInputLastName" class="form-label">Last Name*</label></strong>
                         <input type="text" formControlName="lastname" class="form-control" id="exampleInputLastName">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address*</label>
+                        <strong> <em class="bi bi-person-circle"></em> <label for="exampleInputEmail1"
+                                class="form-label">Email
+                                address*</label></strong>
                         <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputmobile1" class="form-label">Mobile Number*</label>
+                        <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1"
+                                class="form-label">Mobile
+                                Number*</label></strong>
                         <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
                     </div>
 
-                    <label>Lead Source*</label>
+                    <strong> <em class="bi bi-envelope-fill"></em> <label>Lead Source*</label></strong>
                     <select class="form-select" aria-label="Default select example" formControlName="leadsource">
                         <option value="Website">Website</option>
                         <option value="Google Search">Google Search</option>
@@ -110,7 +113,7 @@
 
                     </select>
                     <hr>
-                    <label>Enter a Product*</label>
+                    <strong> <em class="bi bi-basket3-fill"></em> <label>Enter a Product*</label></strong>
                     <select class="form-select" aria-label="Default select example" formControlName="product">
                         <option *ngFor="let user of viewVal" value="{{user.addproduct}}">{{user.addproduct}}
                         </option>

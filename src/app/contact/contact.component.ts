@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent  {
+export class ContactComponent  implements OnInit{
   formGroup: FormGroup;
   userdetails: any = {
     firstName: '',
@@ -16,9 +16,13 @@ export class ContactComponent  {
     email: '',
     location: '',
     mobile: '',
-    type:'Additionalinfo'
+    type:'Additionalinfo',
+
   };
+ 
   db="freshers_sample";
+  myobj: any;
+
   constructor(private fb: FormBuilder, private toastr:ToastrService, private api:ApiService) {
     this.formGroup = this.fb.group({
       firstName: [this.userdetails.firstName],
@@ -29,6 +33,11 @@ export class ContactComponent  {
       type:[this.userdetails.type]
     });
   }
+  ngOnInit(): void {
+  
+   
+  }
+
   get firstName() {
     return this.formGroup.get('firstName')!;
   } get lastName() {
@@ -46,6 +55,7 @@ export class ContactComponent  {
 storing(Formvalue:any)
 {
    this.api.add("freshers_sample",this.formGroup.value).subscribe(res => {
+     localStorage.setItem("User",Formvalue.firstName)
     this.toastr.success("Data stored")
     console.log(Formvalue);
     console.log(res);
@@ -53,7 +63,10 @@ storing(Formvalue:any)
 },_rej=>{
   this.toastr.error("Cannot Post Data until field are empty",_rej)
 });
+this.myobj=localStorage.getItem("User");
+console.log(this.myobj);
 }
+
 fetch(){
   this.api.get(this.db).subscribe((data)=>{
     alert('Your data has been Submitted')

@@ -6,7 +6,7 @@
   float: left;
   color: white;
   background-color: blue;
-  height: 125px;
+  height: 100px;
 }
 
 span {
@@ -21,14 +21,13 @@ span {
   font-size: larger;
 }
 .nav-link:hover {
-  text-decoration: underline blue;
+  text-decoration: underline darkblue;
 }
 
 .navbar {
   /* position: fixed; */
   width: 100%;
   opacity: 95%;
-  height: 125x;
 }
 
 .margin {

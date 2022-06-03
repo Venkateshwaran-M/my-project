@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import{ApiService} from '../api.service' 
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   db="freshers_sample";
   regUser: any;
   localStorage: any;
-  constructor(private fb:FormBuilder, private api:ApiService, private route:Router) { 
+  constructor(private fb:FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) { 
     {
       this.formGroup = this.fb.group({
         firstName: [this.userRecord.firstName],
@@ -56,7 +57,7 @@ export class RegisterComponent implements OnInit {
   {
     console.log("form",Formvalue);
     this.api.storedata(Formvalue).subscribe((data)=>{
-      alert("Sign-up Succesfully")
+      this.toastr.success("Sign-up Succesfully")
       this.route.navigate(['log-in']); 
       console.log("data returned from server",data);  
     },err=>{

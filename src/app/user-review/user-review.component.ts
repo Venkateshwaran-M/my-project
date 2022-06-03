@@ -54,7 +54,7 @@ export class UserReviewComponent implements OnInit {
        //  alert("data got successful");
       //  this.user.reset();
      },rej=>{
-       alert("cannot post data"+rej);
+       this.toastr.error("cannot post data"+rej);
      });
     
   }

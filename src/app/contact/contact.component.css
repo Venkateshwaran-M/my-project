@@ -8,10 +8,12 @@
   background-color: black;
   border-radius: 25px;
   transition: 1s ease-in-out;
+  color: white;
 }
 .container {
-  background-color: aliceblue;
+  background-color: #56b1ad;
   margin-bottom: 10px;
+  width: 50%;
 }
 input:hover {
   cursor: pointer;
@@ -19,4 +21,12 @@ input:hover {
 .btn1 {
   margin-left: 850px;
   margin-bottom: 15px;
+}
+label {
+  color: white;
+}
+input {
+  color: lightgray;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

@@ -1,9 +1,14 @@
-<div class="container" style="margin-top: 150px;">
+<div class="user">
+    <em class=" bi bi-person-circle">
+        Logged in User, Welcome {{obj}}
+    </em>
+    <button class="btn btn-danger bi bi-person-circle mb-3" (click)="logout()"> Logout</button>
+</div>
+<div class="container one">
+    <h1 style="text-align: center;">Products Available</h1>
 
     <div class="grid-container">
-
         <div *ngFor="let user of viewVal">
-
             <div class="grid-item">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{user.image}}" alt="">
@@ -16,27 +21,34 @@
             </div>
         </div>
     </div>
+
+</div>
+<div class="container" style="margin-top: 100px; width: 50%;">
+
     <h1 style="text-align:center" class="font">PRODUCT BOOKING FORM</h1>
     <form [formGroup]="formGroup">
         <div class="mb-3">
-            <label for="exampleInputFirstName1" class="form-label">Name*</label>
+            <strong> <label for="exampleInputFirstName1" class="form-label">Name*</label></strong>
             <input type="text" class="form-control" formControlName="name" id="exampleInputFirstName1"
                 aria-describedby="emailHelp">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address*</label>
-            <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1">
+            <strong> <em class="bi bi-envelope-fill"></em> <label for="exampleInputEmail1" class="form-label">Email
+                    address*</label></strong>
+            <input type="email" value="{{obj}}" formControlName="email" class="form-control" id="exampleInputEmail1">
         </div>
         <div class="mb-3">
-            <label for="exampleInputmobile1" class="form-label">Mobile Number*</label>
+            <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1" class="form-label">Mobile
+                    Number*</label></strong>
             <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
         </div>
         <div class="mb-3">
-            <label for="exampleInputleadsource1" class="form-label">Address*</label>
+            <strong> <em class="bi bi-geo-alt-fill"></em> <label for="exampleInputleadsource1"
+                    class="form-label">Address*</label></strong>
             <input type="text" formControlName="address" class="form-control" id="exampleInputaddress1">
         </div>
 
-        <label>Choose a product*</label>
+        <strong> <em class="bi bi-basket3-fill"></em><label>Choose a product*</label></strong>
 
 
         <select class="form-select" aria-label="Default select example" formControlName="product">
@@ -45,7 +57,7 @@
         </select>
 
 
-        <button type="button" (click)="storing(this.formGroup.value,id)" class="btn btn-primary mt-3 mb-3">Confirm
+        <button type="button" (click)="storing(this.formGroup.value,id)" class="btn btn-warning mt-3 mb-3">Confirm
             Booking
         </button>
         <button class="btn btn1 btn-dark " (click)="cancel()">CANCEL</button>

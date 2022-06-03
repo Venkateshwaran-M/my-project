@@ -1,8 +1,8 @@
 <div class="body">
     <form class="container" [formGroup]="formGroup">
-        <h1 class="hoverme">CONTACT DETAILS</h1>
+        <h1><strong>CONTACT DETAILS</strong></h1>
         <div class="form-group">
-            <label for="firstName">First Name*</label>
+            <strong> <label for="firstName">First Name*</label></strong>
             <input id="firstName" type="text" class="form-control" formControlName="firstName"
                 placeholder="FirstName Required" required />
             <div class="help-block text-danger" *ngIf="firstName.touched">
@@ -13,13 +13,13 @@
         </div>
 
         <div class="form-group">
-            <label for="lname">Last Name</label>
+            <strong> <label for="lname">Last Name*</label></strong>
             <input id="lname" class="form-control" type="text" placeholder="Enter last name"
                 formControlName="lastName" />
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
+            <em class="bi bi-envelope-fill"></em> <strong> <label for="email">Email*</label></strong>
             <input id="email" class="form-control" type="email" formControlName="email"
                 placeholder="Email (required)" />
             <div class="help-block text-danger" *ngIf="email.touched">
@@ -28,19 +28,20 @@
         </div>
 
         <div class="form-group">
-            <label for="location">Location*</label>
+            <em class="bi bi-geo-alt-fill"></em> <strong><label for="location">Location*</label></strong>
             <input type="text" id="location" class="form-control" placeholder="Enter Location"
                 formControlName="location" />
         </div>
 
         <div class="form-group">
-            <label for="mobile">Mobile Number</label>
+            <em class="bi bi-telephone-fill"></em> <strong> <label for="mobile">Mobile Number*</label></strong>
             <input id="mobile" type="number" class="form-control" formControlName="mobile"
                 placeholder="Enter your phone #" />
         </div>
         <hr />
-        <button class="btn btn-primary button mb-3" (click)="storing(this.formGroup.value)">submit Details</button>
-        <button class="btn btn1 btn-dark " (click)="cancel()">Clear form</button>
+        <button class="btn btn-warning button mb-3 mr-3" (click)="storing(this.formGroup.value)">submit
+            Details</button><br>
+        <button class="btn btn-dark mb-3" (click)="cancel()">Clear form</button>
 
     </form>
 </div>

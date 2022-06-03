@@ -1,9 +1,8 @@
 .container {
   margin-top: 125px;
-  background-color: aliceblue;
-  /* margin-left: 300px; */
-  /* margin-right: 300px; */
-  /* margin-bottom: 30px; */
+  background-color: #56b1ad;
+  width: 50%;
+  margin-bottom: 20px;
 }
 .background {
   background-repeat: no-repeat;

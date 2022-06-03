@@ -28,10 +28,9 @@ export class BlogComponent implements OnInit {
   localObject: any;
   temp: any;
   viewVal: any=[];
-  
   sample: any;
-  constructor(private fb:FormBuilder, private toastr:ToastrService, private api: ApiService, private route:Router) { 
-    
+  obj: any;
+  constructor(private fb:FormBuilder, private toastr:ToastrService, private api: ApiService, private route:Router) {    
       this.formGroup=this.fb.group({
         name:[this.userdetails.name],
         email:[this.userdetails.email],
@@ -41,9 +40,12 @@ export class BlogComponent implements OnInit {
         type:[this.userdetails.type],
         
       })
-    } 
-  
+    }   
   ngOnInit(): void {
+
+   this.obj=localStorage.getItem("email")
+
+
    let localObject:any=localStorage.getItem('userId')
    console.log(localObject);
    let temp = JSON.parse(localObject.toString());
@@ -73,17 +75,16 @@ get address(){
 get product(){
   return this.formGroup.get('product')!; 
 }
-
 storing(doc:any, id:any){
-
   console.log(doc);
   doc['user']=this.id;
-
   this.api.add("freshers_sample",this.formGroup.value).subscribe(res=>{
     console.log(res);
     this.alluser=res;
     this.alluserData=this.alluser.docs;
     this.toastr.success('Your product booking request has been received');
+  this.route.navigate(['viewuser'])
+
     this.type="order"
     this.api.postByTypedUser("freshers_sample",this.type,this.id).subscribe(res=>{
       console.log(res)
@@ -91,20 +92,21 @@ storing(doc:any, id:any){
     })
   },rej=>{
     this.toastr.error("Kindly fill the form")
-    // alert('Something Bad Happened'+rej);
     console.log(rej);
   });
- 
- 
+ localStorage.setItem("Name",doc.name)
+ localStorage.setItem("Email",doc.email)
+ localStorage.setItem("Mobile",doc.mobile)
+ localStorage.setItem("address",doc.address)
+ localStorage.setItem("product",doc.product)
 
-  
-  
- 
 }
-
-
-
 cancel(){
   this.formGroup.reset();
 }
+logout(){
+  this.route.navigate(['log-in'])
+  this.toastr.success("Logged Out Successfully!!! Please do visit us again😉")
+}
+
 }

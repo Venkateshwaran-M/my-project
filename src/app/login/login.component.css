@@ -1,8 +1,8 @@
 .margin {
   margin-top: 150px;
   width: 50%;
-  background-color: aliceblue;
-  /* background-color: #242582; */
+  background-color: #56b1ad;
+  margin-bottom: 25px;
 }
 .margin1 {
   margin-right: 10px;
@@ -12,4 +12,10 @@
   border-radius: 25px;
   transition: 1s ease-in-out;
   background-color: black;
+}
+input {
+  color: lightgray;
+}
+label {
+  color: white;
 }

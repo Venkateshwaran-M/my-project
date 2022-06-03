@@ -9,3 +9,11 @@
   color: gray;
   margin-top: 50px;
 }
+.style {
+  color: darkblue;
+  text-align: center;
+  font-weight: bold;
+}
+.maincontent {
+  margin-top: 115px;
+}

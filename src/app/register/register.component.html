@@ -4,7 +4,7 @@
             <form [formGroup]="formGroup" (ngSubmit)="storing(this.formGroup.value)">
                 <h1>Register to shipmate account</h1>
                 <div class="form-group">
-                    <label for="firstName">First Name</label>
+                    <strong> <label for="firstName">First Name</label></strong>
                     <input id="firstName" class="form-control has-validation" formControlName="firstName"
                         placeholder="FirstName Required" required />
                     <div class="help-block text-danger" *ngIf="firstName.touched">
@@ -15,14 +15,14 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="lname">Last Name</label>
+                    <strong> <label for="lname">Last Name</label></strong>
                     <input id="lname" class="form-control" formControlName="lastName" required />
                 </div>
 
 
 
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <strong> <label for="email">Email</label></strong>
                     <input id="email" class="form-control has-validation" formControlName="email"
                         placeholder="Email (required)" required />
                     <div class="help-block text-danger" *ngIf="email.touched">
@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <strong> <label for="password">Password</label></strong>
                     <input type="password" id="password" class="form-control has-validation" formControlName="password"
                         required />
                     <div class="help-block text-danger" *ngIf="password.touched">
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="mobile">Mobile Number</label>
+                    <strong> <label for="mobile">Mobile Number</label></strong>
                     <input id="mobile" type="number" class="form-control has-validation" formControlName="mobile"
                         placeholder="Enter your phone #" />
                     <div class="help-block text-danger" *ngIf="mobile.touched">
@@ -49,8 +49,6 @@
                 </div>
                 <hr />
                 <button class="btn btn-primary margin">Sign Up</button>
-                <!-- <button class="btn btn-secondary" routerLink="login">Login</button> </span> -->
-                <!-- <button class="btn btn-secondary" (click)="fetch()">Fetch</button> -->
             </form>
         </div>
     </div>

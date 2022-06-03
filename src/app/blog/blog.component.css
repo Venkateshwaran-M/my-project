@@ -1,11 +1,11 @@
 .container {
-  background-color: azure;
+  background-color: #56b1ad;
   margin-bottom: 20px;
+  /* width: 50%; */
 }
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-repeat: no-repeat;
   padding: 10px;
 }
 .grid-item {
@@ -13,13 +13,25 @@
   text-align: center;
 }
 .grid-item:hover {
+  background-color: azure;
   transition: 1s ease-in;
   border-radius: 2px;
-  box-shadow: 0 0 10px #000000;
+  /* box-shadow: 0 0 10px #000000; */
 }
 .font {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .btn1 {
   margin-left: 5px;
+}
+.one {
+  margin-top: 130px;
+}
+.user {
+  margin-top: 130px;
+  margin-left: 1000px;
+  background-color: #7532f9;
+  align-items: center;
+  color: white;
+  padding: 10px;
 }
