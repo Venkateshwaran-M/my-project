@@ -1,47 +1,49 @@
 <div class="body">
-    <form class="container" [formGroup]="formGroup">
-        <h1><strong>CONTACT DETAILS</strong></h1>
-        <div class="form-group">
-            <strong> <label for="firstName">First Name*</label></strong>
-            <input id="firstName" type="text" class="form-control" formControlName="firstName"
-                placeholder="FirstName Required" required />
-            <div class="help-block text-danger" *ngIf="firstName.touched">
-                <span *ngIf="firstName.errors?.required">
-                    First Name is REQUIRED!!!
-                </span>
+    <div class="container">
+        <form class="form-group-all" [formGroup]="formGroup">
+            <h1><strong>CONTACT DETAILS</strong></h1>
+            <div class="form-group">
+                <strong> <label for="firstName">First Name*</label></strong>
+                <input id="firstName" type="text" class="form-control" formControlName="firstName"
+                    placeholder="FirstName Required" required />
+                <div class="help-block text-danger" *ngIf="firstName.touched">
+                    <span *ngIf="firstName.errors?.required">
+                        First Name is REQUIRED!!!
+                    </span>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <strong> <label for="lname">Last Name*</label></strong>
-            <input id="lname" class="form-control" type="text" placeholder="Enter last name"
-                formControlName="lastName" />
-        </div>
-
-        <div class="form-group">
-            <em class="bi bi-envelope-fill"></em> <strong> <label for="email">Email*</label></strong>
-            <input id="email" class="form-control" type="email" formControlName="email"
-                placeholder="Email (required)" />
-            <div class="help-block text-danger" *ngIf="email.touched">
-                <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
+            <div class="form-group">
+                <strong> <label for="lname">Last Name*</label></strong>
+                <input id="lname" class="form-control" type="text" placeholder="Enter last name"
+                    formControlName="lastName" />
             </div>
-        </div>
 
-        <div class="form-group">
-            <em class="bi bi-geo-alt-fill"></em> <strong><label for="location">Location*</label></strong>
-            <input type="text" id="location" class="form-control" placeholder="Enter Location"
-                formControlName="location" />
-        </div>
+            <div class="form-group">
+                <em class="bi bi-envelope-fill"></em> <strong> <label for="email">Email*</label></strong>
+                <input id="email" class="form-control" type="email" formControlName="email"
+                    placeholder="Email (required)" />
+                <div class="help-block text-danger" *ngIf="email.touched">
+                    <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <em class="bi bi-telephone-fill"></em> <strong> <label for="mobile">Mobile Number*</label></strong>
-            <input id="mobile" type="number" class="form-control" formControlName="mobile"
-                placeholder="Enter your phone #" />
-        </div>
-        <hr />
-        <button class="btn btn-warning button mb-3 mr-3" (click)="storing(this.formGroup.value)">submit
-            Details</button><br>
-        <button class="btn btn-dark mb-3" (click)="cancel()">Clear form</button>
+            <div class="form-group">
+                <em class="bi bi-geo-alt-fill"></em> <strong><label for="location">Location*</label></strong>
+                <input type="text" id="location" class="form-control" placeholder="Enter Location"
+                    formControlName="location" />
+            </div>
 
-    </form>
+            <div class="form-group">
+                <em class="bi bi-telephone-fill"></em> <strong> <label for="mobile">Mobile Number*</label></strong>
+                <input id="mobile" type="number" class="form-control" formControlName="mobile"
+                    placeholder="Enter your phone #" />
+            </div>
+            <hr />
+            <button class="btn btn-warning button mb-3 mr-3" (click)="storing(this.formGroup.value)">submit
+                Details</button><br>
+            <button class="btn btn-dark mb-3" (click)="cancel()">Clear form</button>
+
+        </form>
+    </div>
 </div>

@@ -73,4 +73,7 @@ export class AddProductComponent implements OnInit {
  contactdetails(){
    this.route.navigate(['usercontactdetails'])
  }
+ seeproduct(){
+   this.route.navigate(['adminviewproduct'])
+ }
   }

@@ -1,63 +1,57 @@
 <div class="body">
-    <button class="btn btn-dark bi bi-card-list" type="button" data-bs-toggle="offcanvas"
-        data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
 
-    </button>
 
-    <div class="offcanvas offcanvas-start btn-warning" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
-        aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas offcanvas-Left" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="staticBackdropLabel"> SHIP MAINTAINENCE PRODUCTS ADMIN</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-
+            <h5 id="offcanvasLeftLabel">options</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <hr>
         <div class="offcanvas-body">
-            <div>
-                <button class="btn btn-info bi-people-fill button mb-3 mt-3" (click)="router()"> View Booked
-                    users</button><br>
-                <button class="btn btn-dark button mb-3 mt-3 bi bi-collection-fill" (click)="navigate()">
-                    Requested
-                    For
-                    demo</button><br>
-                <button class="btn btn-success bi-people-fill button mb-3 mt-3" (click)="contactdetails()"> User Contact
-                    Details</button><br>
-                <button class="btn btn-success bi-basket-fill button mb-3 mt-3"> Products
-                </button>
+            <button class="btn btn-info bi-people-fill button mb-3 mt-3" (click)="router()"> View Booked
+                users</button><br>
+            <button class="btn btn-dark button mb-3 mt-3 bi bi-collection-fill" (click)="navigate()">
+                Requested
+                For
+                demo</button><br>
+            <button class="btn btn-success bi-people-fill button mb-3 mt-3" (click)="contactdetails()"> User Contact
+                Details</button><br>
+            <button class="btn btn-success bi-basket-fill button mb-3 mt-3" (click)="seeproduct()"> Products
+            </button>
 
-            </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container ">
+
 
 
         <h1>Admin Access to add a new product</h1>
         <form [formGroup]="formGroup">
             <div class="form-group">
-                <label for="addproduct">Product</label>
+                <strong> <label for="addproduct">Product</label></strong>
                 <input id="addproduct" class="form-control" formControlName="addproduct"
                     placeholder="Product Name Required" required />
 
             </div>
 
             <div class="form-group">
-                <label for="price">Price</label>
+                <strong> <label for="price">Price</label></strong>
                 <input id="price" class="form-control" type="number" formControlName="price" required />
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
+                <strong> <label for="description">Description</label></strong>
                 <input id="description" class="form-control" type="text" formControlName="description" required />
             </div>
 
             <div class="form-group">
-                <label for="image">Image</label>
+                <strong> <label for="image">Image</label></strong>
                 <input id="image" class="form-control" type="url" formControlName="image" required />
             </div>
 
 
             <button class="btn btn-primary button mb-3 mr-3 mt-3" (click)="show(this.formGroup.value)">Add
                 Product</button><br>
-
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
+                aria-controls="offcanvasLeft">Admin Options</button>
         </form>
     </div>
 </div>
