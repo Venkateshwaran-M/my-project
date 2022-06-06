@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Products launched so far</h1>
+
+    <div class="grid-container">
+        <div *ngFor="let user of viewVal">
+            <div class="grid-item">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{user.image}}" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Product Name:{{user.addproduct}}</h5>
+                        <p class="card-text text text-success">Price:₹{{user.price}}</p>
+                        <p class="card-text">Description:{{user.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-secondary bi bi-arrow-left mb-3" (click)="goBack()"> Back</button>
+</div>

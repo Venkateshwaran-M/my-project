@@ -49,8 +49,7 @@ export class AddProductComponent implements OnInit {
     return this.formGroup.get('addleadsource')!;
   }
   ngOnInit(): void {
-  
-  
+//code to be implemented
   }
   
   show(formdata:NgForm){
@@ -61,7 +60,7 @@ export class AddProductComponent implements OnInit {
       this.alluser=res;
       window.location.reload();
     },rej=>{
-      this.toastr.error("Something Went wrong")
+      this.toastr.error("Something Went wrong",rej)
     }
     );
   }

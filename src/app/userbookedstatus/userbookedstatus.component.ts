@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-userbookedstatus',
   templateUrl: './userbookedstatus.component.html',
@@ -11,7 +12,7 @@ export class UserbookedstatusComponent implements OnInit {
   viewVal: any=[];
   dropdown: any;
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService, private route:Router) { }
 
   ngOnInit(): void {
     this.api.get("freshers_sample").subscribe(res=>{
@@ -23,4 +24,7 @@ export class UserbookedstatusComponent implements OnInit {
     alert("cannot post data"+rej);
   });
 
+}
+goBack(){
+  this.route.navigate(['addproduct']);
 }}

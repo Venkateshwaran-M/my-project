@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { ToastrModule, ToastrService } from 'ngx-toastr';
+import {  ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-demorequest',
   templateUrl: './demorequest.component.html',
@@ -11,7 +12,7 @@ export class DemorequestComponent implements OnInit {
   temp: any;
   viewVal: any;
 
-  constructor(private api:ApiService, private toastr:ToastrService) { }
+  constructor(private api:ApiService, private toastr:ToastrService, private route:Router) { }
 
   ngOnInit(): void {
     this.api.get("freshers_sample").subscribe(res=>{
@@ -23,5 +24,9 @@ export class DemorequestComponent implements OnInit {
     this.toastr.error("cannot post data"+rej);
   });
   }
+
+goBack(){
+  this.route.navigate(['addproduct']);
+}
 
 }

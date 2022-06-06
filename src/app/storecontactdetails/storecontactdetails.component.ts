@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-storecontactdetails',
   templateUrl: './storecontactdetails.component.html',
@@ -11,7 +12,7 @@ export class StorecontactdetailsComponent implements OnInit {
   sample: any;
   viewVal: any;
 
-  constructor(private api:ApiService, private toastr:ToastrService) { }
+  constructor(private api:ApiService, private toastr:ToastrService, private route:Router) { }
 
   ngOnInit(): void {
     this.api.get("freshers_sample").subscribe(res=>{
@@ -23,5 +24,7 @@ export class StorecontactdetailsComponent implements OnInit {
     this.toastr.error("cannot post data"+rej);
   });
   }
-
+goBack(){
+this.route.navigate(['addproduct'])
+}
 }

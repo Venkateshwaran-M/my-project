@@ -4,8 +4,6 @@ const cors = require('cors');
 const dbconnection = require('./nano');
 const app = express();
 const port = 8000;
-// const nodemail = require('nodemailer');
-// const setmail = require('./mail')
 
 
 process.on('uncaughtException', function (exception) {

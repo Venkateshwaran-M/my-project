@@ -1,4 +1,8 @@
 .container {
-  margin-top: 150px;
+  margin-top: 50px;
   width: 50%;
+}
+.btn-dark {
+  margin-top: 150px;
+  margin-left: 5px;
 }
