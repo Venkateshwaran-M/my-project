@@ -66,7 +66,7 @@ getByType(type:string, fields:any){
 
 }
 
-postByTypedUser(type:string, fields:any,id:any){
+postByTypedUser(type:string, _fields:any,id:any){
   let url =this.url + 'freshers_sample/_find'
   let typeData = {
     selector : {
@@ -78,7 +78,7 @@ postByTypedUser(type:string, fields:any,id:any){
   return this.http.post(url, typeData, this.httpOptions)
 }
 //login function using node
-checkuserlogin(email:any,password:any)
+checkuserlogin(email:any,_password:any)
  {
   return this.http.get<any>('http://localhost:8000/getdata/'+email);
  }
