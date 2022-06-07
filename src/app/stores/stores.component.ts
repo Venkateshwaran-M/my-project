@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StoresComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+    // code to be implemented
+   }
 
   ngOnInit(): void {
+    // code to be implemenetd
   }
 
 }

@@ -34,6 +34,7 @@ db="freshers_sample";
    }
 
   ngOnInit(): void {
+    // code to be implemented
 
   }
 
