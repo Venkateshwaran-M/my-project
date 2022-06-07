@@ -47,7 +47,6 @@ export class FeedbacktableComponent implements OnInit {
     console.log(formdata);
     console.log(res);
     this.alluser=res;
-    // alert('Data inserted');
     this.user.reset();
   },rej => {
     alert('Something Bad happened'+ rej);
@@ -62,19 +61,10 @@ export class FeedbacktableComponent implements OnInit {
     for (const array in this.alluserData){
       console.log(this.alluserData[array])
     }
-    // alert("data got successful");
     this.user.reset();
   },rej=>{
     alert("cannot post data"+rej);
   });
- //  this.api.getDocsByID("reviews","33a48a66e90cf60a72f5576b5a099047").subscribe(res=>{
- //    var temp=res;
- //    console.log(temp);
- //    alert("one id got from db");
- //    this.user.reset();
- //  },rej=>{
- //    alert("404 error"+rej);
- //  } );
  }
  back(){
    this.route.navigate(['user-review']);
