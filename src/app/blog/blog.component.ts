@@ -91,8 +91,8 @@ storing(doc:any, _id:any){
   this.route.navigate(['viewuser'])
 
     this.type="order"
-    this.api.postByTypedUser("freshers_sample",this.type,this.id).subscribe(res=>{
-      console.log(res)
+    this.api.postByTypedUser("freshers_sample",this.type,this.id).subscribe(data=>{
+      console.log(data)
       console.log(this.id)
     })
   },rej=>{
