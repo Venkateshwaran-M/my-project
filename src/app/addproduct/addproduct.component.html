@@ -1,6 +1,4 @@
 <div class="body">
-
-
     <div class="offcanvas offcanvas-Left" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
         <div class="offcanvas-header">
             <h5 id="offcanvasLeftLabel">options</h5>
@@ -16,42 +14,53 @@
             <button class="btn btn-success bi-people-fill button mb-3 mt-3" (click)="contactdetails()"> User Contact
                 Details</button><br>
             <button class="btn btn-success bi-basket-fill button mb-3 mt-3" (click)="seeproduct()"> Products
-            </button>
+            </button><br>
+            <button class="btn btn-success bi-basket-fill button mb-3 mt-3" (click)="seeregusers()"> View Registered
+                Users
+            </button><br>
+            <button class="btn btn-success bi-basket-fill button mb-3 mt-3" (click)="seeproduct()"> Products
+            </button> <br>
+            <button class="btn btn-success bi-basket-fill button mb-3 mt-3" (click)="seeproduct()"> Products
+            </button> <br>
 
         </div>
     </div>
     <div class="container ">
 
 
-
+        <img src="../../assets/images/Shipmatelogo-removebg-preview.png" class="logoimg" alt="logo">
+        <button class="btn btn-danger bi bi-person-circle logout" (click)="logout()"> Logout</button>
+        <hr>
         <h1>Admin Access to add a new product</h1>
         <form [formGroup]="formGroup">
             <div class="form-group">
-                <strong> <label for="addproduct">Product</label></strong>
+                <strong class="bi bi-basket3-fill"> <label for="addproduct"> Product</label></strong>
                 <input id="addproduct" class="form-control" formControlName="addproduct"
-                    placeholder="Product Name Required" required />
+                    placeholder="Enter a product name" required />
 
             </div>
 
             <div class="form-group">
-                <strong> <label for="price">Price</label></strong>
-                <input id="price" class="form-control" type="number" formControlName="price" required />
+                <strong class="bi bi-currency-dollar"> <label for="price"> Price</label></strong>
+                <input id="price" class="form-control" type="number" formControlName="price"
+                    placeholder="Enter a price ₹" required />
             </div>
             <div class="form-group">
-                <strong> <label for="description">Description</label></strong>
-                <input id="description" class="form-control" type="text" formControlName="description" required />
+                <strong class="bi bi-card-text"> <label for="description"> Description</label></strong>
+                <input id="description" placeholder="Enter Description" class="form-control" type="text"
+                    formControlName="description" required />
             </div>
 
             <div class="form-group">
-                <strong> <label for="image">Image</label></strong>
+                <strong class="bi bi-image"> <label for="image"> Image</label></strong>
                 <input id="image" class="form-control" type="url" formControlName="image" required />
             </div>
 
-
+            <hr>
             <button class="btn btn-primary button mb-3 mr-3 mt-3" (click)="show(this.formGroup.value)">Add
                 Product</button><br>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
-                aria-controls="offcanvasLeft">Admin Options</button>
+            <button class="btn btn-primary mb-3" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">Admin Options</button>
         </form>
     </div>
 </div>

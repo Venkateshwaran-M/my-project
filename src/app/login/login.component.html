@@ -1,35 +1,39 @@
-<div class="container margin">
-    <h1 style="text-align: center;"><strong>LOG-IN TO SHIPMATE ACCOUNT</strong></h1>
+<div class="wrapper">
+    <div class="container margin">
+        <h1 style="text-align: center;"><strong>LOG-IN TO SHIPMATE ACCOUNT</strong></h1>
 
 
 
-    <form [formGroup]="formGroup">
-        <div class="form-outline mb-4">
-            <em class="bi bi-person-circle"></em> <strong><label class="form-label" for="form2Example1">Email
-                    address</label></strong>
+        <form [formGroup]="formGroup">
+            <div class="form-outline mb-4">
+                <em class="bi bi-person-circle"></em> <strong><label class="form-label" for="form2Example1">Email
+                        address</label></strong>
 
-            <input type="email" id="form2Example1" formControlName="email" class="form-control" />
+                <input type="email" placeholder="Enter email address" id="form2Example1" formControlName="email"
+                    class="form-control" />
 
-        </div>
+            </div>
 
-        <div class="form-outline mb-4">
-            <em class="bi bi-lock-fill"></em> <strong><label class="form-label"
-                    for="form2Example2">Password</label></strong>
+            <div class="form-outline mb-4">
+                <em class="bi bi-lock-fill"></em> <strong><label class="form-label"
+                        for="form2Example2">Password</label></strong>
 
-            <input type="password" id="form2Example2" class="form-control" formControlName="password" />
-        </div>
-
-
-
-        <button type="button" class="btn btn-primary btn-block margin1 mb-4 bi bi-person-circle"
-            (click)="login(this.formGroup.value)">LOG-in</button>
-        <button class="btn mb-4 btn-dark " (click)="cancel()">CANCEL</button>
+                <input type="password" id="form2Example2" placeholder="Enter password" class="form-control"
+                    formControlName="password" />
+            </div>
 
 
-        <div class="text-center">
-            <strong>Not a member? <a routerLink="/register">Register</a></strong>
 
-        </div>
-        <strong>Admin login:<a routerLink="/admin">Administration</a></strong>
-    </form>
+            <button type="button" class="btn btn-primary btn-block margin1 mb-4 bi bi-person-circle"
+                (click)="login(this.formGroup.value)"> LOG-in</button>
+            <button class="btn mb-4 btn-dark " (click)="cancel()">CANCEL</button>
+
+
+            <div class="text-center">
+                <strong>Not a member? <a routerLink="/register">Register</a></strong>
+
+            </div>
+            <strong>Admin login:<a routerLink="/admin">Administration</a></strong>
+        </form>
+    </div>
 </div>

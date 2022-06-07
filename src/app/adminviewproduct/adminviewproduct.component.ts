@@ -29,5 +29,11 @@ export class AdminviewproductComponent implements OnInit {
   goBack(){
     this.route.navigate(['addproduct'])
   }
-
+deleteProduct(id:any,rev:any){
+  this.api.deleteData(id,rev).subscribe((data)=>{
+    console.log(data);
+    alert('Data deleted');
+   window.location.reload();
+   })
+}
 }

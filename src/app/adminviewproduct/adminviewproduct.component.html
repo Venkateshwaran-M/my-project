@@ -5,11 +5,14 @@
         <div *ngFor="let user of viewVal">
             <div class="grid-item">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{user.image}}" alt="">
+                    <img class="card-img-top" src="{{user.image}}" alt="product image">
                     <div class="card-body">
                         <h5 class="card-title">Product Name:{{user.addproduct}}</h5>
                         <p class="card-text text text-success">Price:₹{{user.price}}</p>
                         <p class="card-text">Description:{{user.description}}</p>
+                        <td><button class="btn btn-danger bi bi-trash3-fill"
+                                (click)="deleteProduct(user._id,user._rev)">Delete this
+                                Product</button></td>
                     </div>
                 </div>
             </div>

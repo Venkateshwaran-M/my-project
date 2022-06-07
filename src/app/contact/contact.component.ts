@@ -34,7 +34,7 @@ export class ContactComponent  implements OnInit{
     });
   }
   ngOnInit(): void {
-  
+  localStorage.setItem("ID",this.userdetails.type._id)
    
   }
 

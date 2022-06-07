@@ -11,6 +11,8 @@
   margin-right: 10px;
   border-radius: 0%;
   margin-bottom: 10px;
+  width: 50%;
+  margin-left: 125px;
 }
 .margin:hover {
   border-radius: 25px;

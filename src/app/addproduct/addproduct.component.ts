@@ -17,7 +17,6 @@ export class AddProductComponent implements OnInit {
     description:'',
     image:'',
     type:'addproduct'
-  
   }
   alluser: any;
   alluserData: any;
@@ -60,20 +59,27 @@ export class AddProductComponent implements OnInit {
       this.alluser=res;
       window.location.reload();
     },rej=>{
-      this.toastr.error("Something Went wrong",rej)
+      this.toastr.error("Something Went wrong",rej);
     }
     );
   }
  router(){
-   this.route.navigate(['userbookedstatus'])
+   this.route.navigate(['userbookedstatus']);
  }
  navigate(){
-   this.route.navigate(['Demouser'])
+   this.route.navigate(['Demouser']);
  }
  contactdetails(){
-   this.route.navigate(['usercontactdetails'])
+   this.route.navigate(['usercontactdetails']);
  }
  seeproduct(){
-   this.route.navigate(['adminviewproduct'])
+   this.route.navigate(['adminviewproduct']);
  }
+ seeregusers(){
+  this.route.navigate(['regusers']);
+}
+logout(){
+  this.route.navigate(['admin']);
+  this.toastr.success("Logout Successful");
+}
   }

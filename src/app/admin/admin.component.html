@@ -3,16 +3,20 @@
 
     <form [formGroup]="formGroup">
         <div class="form-outline mb-4">
-            <em class="bi bi-person-circle"></em> <label class="form-label" for="form2Example1">Email address</label>
+            <strong> <em class="bi bi-person-circle"></em> <label class="form-label" for="form2Example1">Email
+                    address</label> </strong>
 
-            <input type="email" id="form2Example1" formControlName="email" class="form-control" />
+            <input type="email" id="form2Example1" placeholder="Enter admin email address" formControlName="email"
+                class="form-control" />
         </div>
         <div class="form-outline mb-4">
-            <em class="bi bi-lock-fill"></em> <label class="form-label" for="form2Example2">Password</label>
+            <strong> <em class="bi bi-lock-fill"></em> <label class="form-label" for="form2Example2">Password</label>
+            </strong>
 
-            <input type="password" id="form2Example2" class="form-control" formControlName="password" />
+            <input type="password" id="form2Example2" placeholder="Enter Password" class="form-control"
+                formControlName="password" />
         </div>
-        <button type="button" class="btn btn-primary btn-block margin1 mb-4"
+        <button type="button" class="btn btn-primary  margin1 mb-4"
             (click)="adminlogin(this.formGroup.value)">LOG-in</button>
     </form>
 </div>

@@ -38,3 +38,8 @@ input {
   /* margin-top: 150px; */
   align-items: center;
 }
+.logoimg {
+  width: 50%;
+  height: 50%;
+  margin-top: 10px;
+}

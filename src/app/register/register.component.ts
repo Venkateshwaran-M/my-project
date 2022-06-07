@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   alluser:any;
   db="freshers_sample";
   regUser: any;
-  localStorage: any;
+  // localStorage: any;
   constructor(private fb:FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) { 
     {
       this.formGroup = this.fb.group({
@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
   }
   get firstName(){
     return this.formGroup.get('firstName')!
@@ -63,6 +64,8 @@ export class RegisterComponent implements OnInit {
     },err=>{
       console.log(err)
     })
+    localStorage.setItem("Fname",this.formGroup.value.firstName)
+    localStorage.setItem("Lname",this.formGroup.value.lastName)
  
   }
 

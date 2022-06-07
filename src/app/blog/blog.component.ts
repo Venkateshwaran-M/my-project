@@ -30,6 +30,8 @@ export class BlogComponent implements OnInit {
   viewVal: any=[];
   sample: any;
   obj: any;
+  myobj: any;
+  myobj1: any;
   constructor(private fb:FormBuilder, private toastr:ToastrService, private api: ApiService, private route:Router) {    
       this.formGroup=this.fb.group({
         name:[this.userdetails.name],
@@ -44,6 +46,9 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
 
    this.obj=localStorage.getItem("email")
+
+   this.myobj=localStorage.getItem('Fname')
+   this.myobj1=localStorage.getItem('Lname')
 
 
    let localObject:any=localStorage.getItem('userId')

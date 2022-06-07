@@ -2,7 +2,7 @@
     <!--#e3f2fd;-->
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
-            <img src="../../assets/images/Shipmatelogo-removebg-preview.png" alt="">
+            <img src="../../assets/images/Shipmatelogo-removebg-preview.png" class="image" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,7 +53,7 @@
 
             <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
                 class="btn btn-primary margin d-flex">Request a demo</button>
-            <button class="btn btn-success margin bi bi-person-circle" routerLink="log-in"> log-in</button>
+            <!-- <button class="btn btn-success margin bi bi-person-circle" routerLink="log-in"> log-in</button> -->
 
 
         </div>
@@ -74,7 +74,7 @@
                     <div class="mb-3">
                         <strong> <label for="exampleInputFirstName1" class="form-label">First Name*</label></strong>
                         <input type="text" class="form-control" formControlName="firstName" id="exampleInputFirstName1"
-                            aria-describedby="emailHelp" required>
+                            aria-describedby="emailHelp" placeholder="Enter first name" required>
                         <div class="help-block text-danger" *ngIf="firstName.touched">
                             <span *ngIf="firstName.errors?.required">
                                 First Name is REQUIRED!!!
@@ -84,23 +84,27 @@
                     </div>
                     <div class="mb-3">
                         <strong> <label for="exampleInputLastName" class="form-label">Last Name*</label></strong>
-                        <input type="text" formControlName="lastname" class="form-control" id="exampleInputLastName">
+                        <input type="text" formControlName="lastname" placeholder="Enter last name" class="form-control"
+                            id="exampleInputLastName">
                     </div>
                     <div class="mb-3">
                         <strong> <em class="bi bi-person-circle"></em> <label for="exampleInputEmail1"
                                 class="form-label">Email
                                 address*</label></strong>
-                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1">
+                        <input type="email" placeholder="Enter your email address" formControlName="email"
+                            class="form-control" id="exampleInputEmail1">
                     </div>
                     <div class="mb-3">
                         <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1"
                                 class="form-label">Mobile
                                 Number*</label></strong>
-                        <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
+                        <input type="number" placeholder="Enter Mobile Number" formControlName="mobile"
+                            class="form-control" id="exampleInputmobile1">
                     </div>
 
                     <strong> <em class="bi bi-envelope-fill"></em> <label>Lead Source*</label></strong>
-                    <select class="form-select" aria-label="Default select example" formControlName="leadsource">
+                    <select class="form-select" aria-label="Default select example" placeholder="pick a lead source"
+                        formControlName="leadsource">
                         <option value="Website">Website</option>
                         <option value="Google Search">Google Search</option>
                         <option value="Google Ads">Google Ads</option>

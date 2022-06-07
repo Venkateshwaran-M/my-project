@@ -37,6 +37,7 @@ import { DemorequestComponent } from './demorequest/demorequest.component';
 import { StorecontactdetailsComponent } from './storecontactdetails/storecontactdetails.component';
 import { ViewuserComponent } from './viewuser/viewuser.component';
 import { AdminviewproductComponent } from './adminviewproduct/adminviewproduct.component';
+import { RegusersComponent } from './regusers/regusers.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -62,6 +63,7 @@ const routes: Routes = [
   {path:'usercontactdetails',component:StorecontactdetailsComponent},
   {path:'viewuser',component:ViewuserComponent},
   {path:'adminviewproduct',component:AdminviewproductComponent},
+  {path:'regusers',component:RegusersComponent}
 
 ];
 
@@ -92,7 +94,8 @@ const routes: Routes = [
     DemorequestComponent,
     StorecontactdetailsComponent,
     ViewuserComponent,
-    AdminviewproductComponent
+    AdminviewproductComponent,
+    RegusersComponent
   ],
   imports: [
     BrowserModule,
