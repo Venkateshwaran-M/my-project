@@ -35,6 +35,7 @@ export class ContactComponent  implements OnInit{
   }
   ngOnInit(): void {
   localStorage.setItem("ID",this.userdetails.type._id)
+  this.myobj=localStorage.getItem("username:");
    
   }
 
@@ -56,7 +57,7 @@ storing(Formvalue:any)
 {
    this.api.add("freshers_sample",this.formGroup.value).subscribe(res => {
      localStorage.setItem("User",Formvalue.firstName)
-    this.toastr.success("Data stored")
+    this.toastr.success("Contact details submitted successfully")
     console.log(Formvalue);
     console.log(res);
   

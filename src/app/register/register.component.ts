@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   // code to be implemented
    
   }
   get firstName(){
@@ -66,6 +67,8 @@ export class RegisterComponent implements OnInit {
     })
     localStorage.setItem("Fname",this.formGroup.value.firstName)
     localStorage.setItem("Lname",this.formGroup.value.lastName)
+    localStorage.setItem("username:",this.formGroup.value.email)
+    localStorage.setItem("mobilenumber:",this.formGroup.value.mobile)
  
   }
 

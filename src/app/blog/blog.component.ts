@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -80,7 +80,7 @@ get address(){
 get product(){
   return this.formGroup.get('product')!; 
 }
-storing(doc:any, id:any){
+storing(doc:any, _id:any){
   console.log(doc);
   doc['user']=this.id;
   this.api.add("freshers_sample",this.formGroup.value).subscribe(res=>{

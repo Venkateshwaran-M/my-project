@@ -23,7 +23,7 @@
 
             <div class="form-group">
                 <em class="bi bi-envelope-fill"></em> <strong> <label for="email">Email*</label></strong>
-                <input id="email" class="form-control" type="email" formControlName="email"
+                <input id="email" [value]="myobj" class="form-control" type="email" formControlName="email"
                     placeholder="Email (required)" />
                 <div class="help-block text-danger" *ngIf="email.touched">
                     <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
