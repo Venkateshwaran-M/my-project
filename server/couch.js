@@ -18,7 +18,7 @@ app.get('/getdata/:id', (req, res) => {
     console.log("retreived......", req.params.id);
 
 
-    var object = {
+    let object = {
         selector: {
 
             "email": req.params.id
@@ -33,7 +33,7 @@ app.get('/getdata/:id', (req, res) => {
     }))
 })
 app.post('/postdata', function (req, res) {
-    var objectnew = {
+    let objectnew = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
