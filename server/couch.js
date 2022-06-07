@@ -6,9 +6,9 @@ const app = express();
 const port = 8000;
 
 
-process.on('uncaughtException', function (exception) {
-    console.log(exception)
-})
+// process.on('uncaughtException', function (exception) {
+//     console.log(exception)
+// })
 
 app.use(cors({
     origin: 'http://localhost:4200'
