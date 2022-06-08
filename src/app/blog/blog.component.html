@@ -3,14 +3,15 @@
     <div class="user">
 
         <em class=" bi bi-person-circle">
-            Logged in User, Welcome {{obj}}<br>
+            Logged in User, Welcome {{loginid}}<br>
         </em>
-        <button class="btn btn-danger bi bi-person-circle mb-3" (click)="logout()"> Logout</button>
+        <button class="btn btn-danger bi bi-person-circle mb-3" (click)="logout()"> Logout</button><br>
+        <button class="btn btn-danger bi bi-person-circle mb-3" routerLink="/viewuser">My Bookings</button>
     </div>
     <h1 style="text-align: center;">Products Available</h1>
 
     <div class="grid-container">
-        <div *ngFor="let user of viewVal">
+        <div *ngFor="let user of allproduct">
             <div class="grid-item">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{user.image}}" alt="">
@@ -54,7 +55,7 @@
 
 
         <select class="form-select" aria-label="Default select example" formControlName="product">
-            <option *ngFor="let user of viewVal" value="{{user.addproduct}}">{{user.addproduct}}</option>
+            <option *ngFor="let user of allproduct" value="{{user.addproduct}}">{{user.addproduct}}</option>
 
         </select>
 

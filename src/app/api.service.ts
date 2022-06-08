@@ -37,6 +37,10 @@ get(db:string): Observable<{}> {
       const url = this.url + db + '/_all_docs?include_docs=true';
       return this.http.get(url, this.httpOptions);
     }
+    getById(db:string, id:number): Observable<{}> {
+      const url = this.url + db + id;
+      return this.http.get(url, this.httpOptions);
+    }
   // get all data by using type  
  gettingByType(db:string, type:string): Observable<{}>{
   const url = this.url + db + '/'+type;
@@ -54,32 +58,55 @@ deleteData(id: any, rev: any): Observable<{}> {
       return this.http.delete(urld, this.httpOptions);
     }
     //get docs by type
-getByType(type:string, fields:any){
-  let url =this.url + 'freshers_sample/_find'
-  let typeData = {
-    selector : {
-      type: type
-    },
-    fields: fields
-  };
-  return this.http.post(url, typeData, this.httpOptions)
-
-}
-
-postByTypedUser(type:string, _fields:any,id:any){
+getByType(type:string, id:any){
   let url =this.url + 'freshers_sample/_find'
   let typeData = {
     selector : {
       type: type,
-      user: id
+      user:id,
     },
-    fields: ['email']
   };
   return this.http.post(url, typeData, this.httpOptions)
 }
+getByTypes(type:string){
+  let url =this.url + 'freshers_sample/_find'
+  let typeData = {
+    selector : {
+      type: type,
+      // user:id,
+    },
+  };
+  return this.http.post(url, typeData, this.httpOptions)
+}
+
+// postByTypedUser(id:any){
+//   let url =this.url + 'freshers_sample/_find'
+//   let typeData = {
+//     selector : {
+  // user:id,
+      
+     
+//     },
+    
+//   };
+//   return this.http.post(url, typeData, this.httpOptions)
+// }
+
+findByID(id:any){
+  let url= this.url + 'freshers_sample/_find'
+  let type={
+    selector:{
+      "_id":id,
+      "user":id,
+      "type":"order"
+    }
+  };
+  return this.http.post(url, type,this.httpOptions)
+}
+
 //login function using node
-checkuserlogin(email:any,_password:any)
+checkuserlogin(id:any)
  {
-  return this.http.get<any>('http://localhost:8000/getdata/'+email);
+  return this.http.post<any>('http://localhost:8000/getdata/',id);
  }
 }

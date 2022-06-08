@@ -14,14 +14,15 @@ app.use(cors({
     origin: 'http://localhost:4200'
 }));
 app.use(bodyParser.json());
-app.get('/getdata/:id', (req, res) => {
-    console.log("retreived......", req.params.id);
+app.post('/getdata', (req, res) => {
+    console.log("retreived......", req.body.email);
 
 
-    let object = {
+    const object = {
         selector: {
 
-            "email": req.params.id
+            "email": req.body.email,
+            type: 'user'
         }
     }
     dbconnection.fresher.find(object).then((data => {

@@ -23,6 +23,7 @@ db="freshers_sample";
   loginUser: any;
   localStorage: any;
   myObject: any;
+  loginCredential: any;
   constructor(private fb: FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) {
     {
       this.formGroup = this.fb.group({
@@ -34,38 +35,64 @@ db="freshers_sample";
    }
 
   ngOnInit(): void {
-    // code to be implemented
 
   }
 
-login(obj:any){
-  this.email=obj.email
-  this.password=obj.password
-  console.log(this.email);
-  console.log(this.password);
+login(formvalue:any){
+  let datas={
+    email:formvalue.email
+  }
+  // this.email=obj.email
+  // this.password=obj.password
+  // console.log(this.email);
+  // console.log(this.password);
+  // this.api.getdata(datas).subscribe(data=>{
+  //   console.log(data)
+    // this.loginCredential=data;
+    localStorage.setItem("Loginid",this.formGroup.value.email)
   
   
- this.api.checkuserlogin(this.email,this.password).subscribe(data=>{
+ this.api.checkuserlogin(datas).subscribe(data=>{
   this.loginUser=data.docs[0]
-  console.log(this.loginUser._id)
-this.localStorage=localStorage.setItem('userId',JSON.stringify(this.loginUser))
- let localObject:any=localStorage.getItem('userId')
- console.log(localObject);
- let temp = JSON.parse(localObject.toString());
- console.log(temp['_id']) 
-     console.log(data);
+  console.log(this.loginUser)
+  localStorage.setItem('userId',(this.loginUser._id))
+  if (data.docs.length <= 0) {
+    this.toastr.error("Invalid credentials");
+  }
+  if (data.docs[0].email === formvalue.email) 
+  {
+    if (data.docs[0].password === formvalue.password) 
+    {
+      this.toastr.success("Login Successfully");
+      this.route.navigate(['/blog'],
+       { queryParams: this.loginUser   })
+    } else {
+      this.toastr.error("Enter Correct Password");
+    }
+  }
+
+
+
+
+//  let localObject:any=localStorage.getItem('userId')
+//  console.log(localObject);
+//  let temp = JSON.parse(localObject.toString());
+//  console.log(temp['_id']) 
+//  this.localStorage=localStorage.setItem("regID",(temp['_id']));
+    //  console.log(data);
      
-     if((data.docs[0].password == this.password && data.docs[0].email==this.email))
-     {
-      this.route.navigate(['blog']);
+    //  if((data.docs[0].password == this.password && data.docs[0].email==this.email))
+    //  {
+    //   this.route.navigate(['blog']);
 
-      this.toastr.success("Login Success")
+    //   this.toastr.success("Login Success")
 
-      localStorage.setItem('email',JSON.stringify(this.email))
-     }
-     else{
-      this.toastr.error("If you are new to shipmate please signup");
-     }
+    //   localStorage.setItem('email',JSON.stringify(this.email))
+    //  }
+    //  else{
+    //   this.toastr.error("Username or password mismaches");
+    //  }
+   
     })
   
  }

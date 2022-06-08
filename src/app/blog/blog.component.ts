@@ -32,6 +32,11 @@ export class BlogComponent implements OnInit {
   obj: any;
   myobj: any;
   myobj1: any;
+  userid: any;
+  myid: any;
+  loginid: any;
+  allproduct: any;
+  prod:any;
   constructor(private fb:FormBuilder, private toastr:ToastrService, private api: ApiService, private route:Router) {    
       this.formGroup=this.fb.group({
         name:[this.userdetails.name],
@@ -44,26 +49,31 @@ export class BlogComponent implements OnInit {
       })
     }   
   ngOnInit(): void {
-
-   this.obj=localStorage.getItem("email")
-
+  this.loginid=localStorage.getItem("Loginid")
+   this.obj=localStorage.getItem("userId")
+   console.log(this.obj)
    this.myobj=localStorage.getItem('Fname')
    this.myobj1=localStorage.getItem('Lname')
-
-
    let localObject:any=localStorage.getItem('userId')
    console.log(localObject);
-   let temp = JSON.parse(localObject.toString());
-   this.id=temp['_id'] 
-   this.api.get("freshers_sample").subscribe(res=>{
+  //  let temp = localObject.toString());
+  //  this.id=temp['_id'] 
+  //  console.log(this.id)
+  //  this.api.get("freshers_sample").subscribe(res=>{
+  //  console.log(res);
+  //  this.temp=res
+  //  this.sample=this.temp.rows;
+  //  this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='addproduct').map((x:any)=>x.doc)
+     
+  //    },_rej=>{
+  //      this.toastr.error("Cannot view products")
+  //    });
+  this.api.getByTypes("addproduct").subscribe(res=>{
     console.log(res);
-    this.temp=res
-    this.sample=this.temp.rows;
-    this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='addproduct').map((x:any)=>x.doc)
-       
-     },_rej=>{
-       this.toastr.error("Cannot view products")
-     });
+    this.prod=res;
+    this.allproduct=this.prod.docs;
+    console.log(this.allproduct)
+  })
     }
 get name(){
   return this.formGroup.get('name')!;
@@ -82,18 +92,25 @@ get product(){
 }
 storing(doc:any, _id:any){
   console.log(doc);
-  doc['user']=this.id;
-  this.api.add("freshers_sample",this.formGroup.value).subscribe(res=>{
+  doc['user']=this.obj;
+  this.api.add("freshers_sample",doc).subscribe(res=>{
     console.log(res);
     this.alluser=res;
-    this.alluserData=this.alluser.docs;
+    this.alluserData=this.alluser;
+    // console.log(this.alluser)
     this.toastr.success('Your product booking request has been received');
-  this.route.navigate(['viewuser'])
+    this.route.navigate(
+      ['/viewuser'],
+      { queryParams: {'productid':this.alluser.id} }
+    );
 
-    this.type="order"
-    this.api.postByTypedUser("freshers_sample",this.type,this.id).subscribe(data=>{
+    // this.type="order"
+    this.api.getByType("order",this.alluser.id).subscribe(data=>{
       console.log(data)
+      this.userid=this.id
       console.log(this.id)
+    this.myid=this.alluser.id;
+    console.log(this.myid)
     })
   },rej=>{
     this.toastr.error("Kindly fill the form")
@@ -104,12 +121,14 @@ storing(doc:any, _id:any){
  localStorage.setItem("Mobile",doc.mobile)
  localStorage.setItem("address",doc.address)
  localStorage.setItem("product",doc.product)
+ 
 
 }
 cancel(){
   this.formGroup.reset();
 }
 logout(){
+  // localStorage.clear()
   this.route.navigate(['log-in'])
   this.toastr.success("Logged Out Successfully!!! Please do visit us again😉")
 }

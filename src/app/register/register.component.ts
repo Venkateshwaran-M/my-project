@@ -69,7 +69,6 @@ export class RegisterComponent implements OnInit {
     localStorage.setItem("Lname",this.formGroup.value.lastName)
     localStorage.setItem("username:",this.formGroup.value.email)
     localStorage.setItem("mobilenumber:",this.formGroup.value.mobile)
- 
   }
 
 }

@@ -37,7 +37,7 @@ adminlogin(obj:any){
   console.log(this.email)
   console.log(this.password)
 
-  this.api.checkuserlogin(this.email,this.password).subscribe(data=>{
+  this.api.checkuserlogin(this.email).subscribe(data=>{
     console.log(data);
     if((data.docs[0].password == this.password && data.docs[0].email==this.email)){
       this.toastr.success('Admin Login Success');
