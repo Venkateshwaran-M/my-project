@@ -35,6 +35,7 @@ db="freshers_sample";
    }
 
   ngOnInit(): void {
+    // code to be implemented
 
   }
 
@@ -42,13 +43,7 @@ login(formvalue:any){
   let datas={
     email:formvalue.email
   }
-  // this.email=obj.email
-  // this.password=obj.password
-  // console.log(this.email);
-  // console.log(this.password);
-  // this.api.getdata(datas).subscribe(data=>{
-  //   console.log(data)
-    // this.loginCredential=data;
+  
     localStorage.setItem("Loginid",this.formGroup.value.email)
   
   
@@ -70,29 +65,6 @@ login(formvalue:any){
       this.toastr.error("Enter Correct Password");
     }
   }
-
-
-
-
-//  let localObject:any=localStorage.getItem('userId')
-//  console.log(localObject);
-//  let temp = JSON.parse(localObject.toString());
-//  console.log(temp['_id']) 
-//  this.localStorage=localStorage.setItem("regID",(temp['_id']));
-    //  console.log(data);
-     
-    //  if((data.docs[0].password == this.password && data.docs[0].email==this.email))
-    //  {
-    //   this.route.navigate(['blog']);
-
-    //   this.toastr.success("Login Success")
-
-    //   localStorage.setItem('email',JSON.stringify(this.email))
-    //  }
-    //  else{
-    //   this.toastr.error("Username or password mismaches");
-    //  }
-   
     })
   
  }

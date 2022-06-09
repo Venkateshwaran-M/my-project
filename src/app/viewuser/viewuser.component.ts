@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-viewuser',
   templateUrl: './viewuser.component.html',
@@ -23,11 +22,7 @@ export class ViewuserComponent implements OnInit {
 
   ngOnInit(): void {
     this.regid=localStorage.getItem("userId");
-    // this.router.queryParams.subscribe(params => {
-    //   console.log(params); 
-    //   this.obj=params;
-      // this.api.getById("freshers_sample/",this.regid).subscribe(res=>{
-        // console.log(res);
+   
         this.api.getByType("order",this.regid).subscribe(res=>{
           console.log(res);
           this.viewtable =res;
@@ -35,22 +30,10 @@ export class ViewuserComponent implements OnInit {
           for(const i of this.viewtable){
             this.viewVal.push(i)
           }
-
-      })
-
+      })  
       
-
-
-
-  
   }
-deleteBooking(id:any,rev:any){
-  this.api.deleteData(id,rev).subscribe((data)=>{
-    console.log(data);
-    alert('Data deleted');
-   window.location.reload();
-   })
-}
+
 goBack(){
   this.route.navigate(['blog'])
 }
