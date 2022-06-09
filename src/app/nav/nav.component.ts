@@ -46,10 +46,10 @@ db="freshers_sample";
       this.temp=res
       this.sample=this.temp.rows;
       this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='addproduct').map((x:any)=>x.doc)
+  },rej=>{
+    this.toastr.error("Cannot get product",rej);
   });
-  }
-    
- 
+  }     
 get firstName(){
   return this.formGroup.get('firstName')!;
 }
@@ -77,13 +77,7 @@ storing(formdata:NgForm){
     this.alluser.reset();
 
   },rej=>{
-    this.toastr.error("Required Fields are Empty")
-    console.log(rej);
+    this.toastr.error("Required Fields are Empty",rej)
   });
-}
-fetch(){
-  this.api.get(this.db).subscribe((data)=>{
-    console.log("Data has been fetched", data);
-  })
 }
 }

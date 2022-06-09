@@ -19,10 +19,8 @@ export class ContactComponent  implements OnInit{
     type:'Additionalinfo',
 
   };
- 
   db="freshers_sample";
   myobj: any;
-
   constructor(private fb: FormBuilder, private toastr:ToastrService, private api:ApiService) {
     this.formGroup = this.fb.group({
       firstName: [this.userdetails.firstName],
@@ -35,10 +33,8 @@ export class ContactComponent  implements OnInit{
   }
   ngOnInit(): void {
   localStorage.setItem("ID",this.userdetails.type._id)
-  this.myobj=localStorage.getItem("username:");
-   
+  this.myobj=localStorage.getItem("username:");  
   }
-
   get firstName() {
     return this.formGroup.get('firstName')!;
   } get lastName() {
@@ -56,24 +52,14 @@ export class ContactComponent  implements OnInit{
 storing(Formvalue:any)
 {
    this.api.add("freshers_sample",this.formGroup.value).subscribe(res => {
-     localStorage.setItem("User",Formvalue.firstName)
     this.toastr.success("Contact details submitted successfully")
     console.log(Formvalue);
-    console.log(res);
-  
+    console.log(res); 
 },_rej=>{
   this.toastr.error("Cannot Post Data until field are empty",_rej)
 });
 this.myobj=localStorage.getItem("User");
 console.log(this.myobj);
-}
-
-fetch(){
-  this.api.get(this.db).subscribe((data)=>{
-    alert('Your data has been Submitted')
-    console.log("Data fetched",data);
-    
-  })
 }
 cancel(){
   this.formGroup.reset();

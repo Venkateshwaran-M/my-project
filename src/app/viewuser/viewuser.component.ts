@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Router,ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-viewuser',
   templateUrl: './viewuser.component.html',
@@ -18,20 +19,27 @@ export class ViewuserComponent implements OnInit {
   viewVal: any =[];
   regid:any;
 
-  constructor(private api:ApiService , private route:Router, private router:ActivatedRoute) { }
+  constructor(private api:ApiService ,private toastr:ToastrService, private route:Router, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.regid=localStorage.getItem("userId");
    
-        this.api.getByType("order",this.regid).subscribe(res=>{
-          console.log(res);
-          this.viewtable =res;
-          this.viewtable=this.viewtable.docs;
-          for(const i of this.viewtable){
-            this.viewVal.push(i)
-          }
-      })  
       
+      const data = {
+        "keys": [ "order" + this.regid ], 
+        "include_docs": true
+      }
+      this.api.getUsingView(data).subscribe(res=>{
+        console.log(res);
+        this.viewtable =res;
+        this.viewtable=this.viewtable.rows;
+        for(const i of this.viewtable){
+          this.viewVal.push(i.doc)
+        }
+
+      },rej=>{
+        this.toastr.error("Cant View Your Booked Status",rej)
+      })
   }
 
 goBack(){

@@ -22,9 +22,8 @@ export class RegisterComponent implements OnInit {
   alluser:any;
   db="freshers_sample";
   regUser: any;
-  // localStorage: any;
   constructor(private fb:FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) { 
-    {
+    
       this.formGroup = this.fb.group({
         firstName: [this.userRecord.firstName],
         lastName: [this.userRecord.lastName],
@@ -33,44 +32,38 @@ export class RegisterComponent implements OnInit {
         mobile: [this.userRecord.mobile],
         type: [this.userRecord.type],
       });
-    }
+    
   }
 
   ngOnInit(): void {
    // code to be implemented
    
   }
-  get firstName(){
+get firstName(){
     return this.formGroup.get('firstName')!
   }
-  get lastName() {
+get lastName() {
     return this.formGroup.get('lastName')!;
   }
-  get email() {
+get email() {
     return this.formGroup.get('email')!;
   }
-  get mobile() {
+get mobile() {
     return this.formGroup.get('mobile')!;
   }
-  get password() {
+get password() {
     return this.formGroup.get('password')!;
   }
-  storing(Formvalue:any)
+storing(Formvalue:any)
   {
-    console.log("form",Formvalue);
     this.api.storedata(Formvalue).subscribe((data)=>{
       this.toastr.success("Sign-up Succesfully")
       this.route.navigate(['log-in']); 
       console.log("data returned from server",data);  
     },err=>{
-      console.log(err)
-    })
-    localStorage.setItem("Fname",this.formGroup.value.firstName)
-    localStorage.setItem("Lname",this.formGroup.value.lastName)
-    localStorage.setItem("username:",this.formGroup.value.email)
-    localStorage.setItem("mobilenumber:",this.formGroup.value.mobile)
+      this.toastr.error("Cant register",err)
+    }) 
   }
-
 }
 
  

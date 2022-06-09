@@ -53,7 +53,6 @@ export class BlogComponent implements OnInit {
    this.obj=localStorage.getItem("userId")
    console.log(this.obj)
    this.myobj=localStorage.getItem('Fname')
-   this.myobj1=localStorage.getItem('Lname')
    let localObject:any=localStorage.getItem('userId')
    console.log(localObject);
  
@@ -62,7 +61,10 @@ export class BlogComponent implements OnInit {
     this.prod=res;
     this.allproduct=this.prod.docs;
     console.log(this.allproduct)
-  })
+  },rej=>{
+    this.toastr.error("Cant view product at this moment",rej)
+  }
+  )
     }
 get name(){
   return this.formGroup.get('name')!;
@@ -98,24 +100,17 @@ storing(doc:any, _id:any){
       console.log(this.id)
     this.myid=this.alluser.id;
     console.log(this.myid)
+    localStorage.setItem("myId",this.myid);
     })
   },rej=>{
     this.toastr.error("Kindly fill the form")
     console.log(rej);
   });
- localStorage.setItem("Name",doc.name)
- localStorage.setItem("Email",doc.email)
- localStorage.setItem("Mobile",doc.mobile)
- localStorage.setItem("address",doc.address)
- localStorage.setItem("product",doc.product)
- 
-
 }
 cancel(){
   this.formGroup.reset();
 }
 logout(){
-  // localStorage.clear()
   this.route.navigate(['log-in'])
   this.toastr.success("Logged Out Successfully!!! Please do visit us again😉")
 }

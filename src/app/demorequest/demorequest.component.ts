@@ -21,7 +21,7 @@ export class DemorequestComponent implements OnInit {
       this.sample=this.temp.rows;
       this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='demo').map((x:any)=>x.doc)
   },rej=>{
-    this.toastr.error("cannot post data"+rej);
+    this.toastr.error("cannot view data"+rej);
   });
   }
 
