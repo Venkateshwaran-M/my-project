@@ -79,19 +79,6 @@ getByTypes(type:string){
   return this.http.post(url, typeData, this.httpOptions)
 }
 
-// postByTypedUser(id:any){
-//   let url =this.url + 'freshers_sample/_find'
-//   let typeData = {
-//     selector : {
-  // user:id,
-      
-     
-//     },
-    
-//   };
-//   return this.http.post(url, typeData, this.httpOptions)
-// }
-
 findByID(id:any){
   let url= this.url + 'freshers_sample/_find'
   let type={
@@ -102,6 +89,12 @@ findByID(id:any){
     }
   };
   return this.http.post(url, type,this.httpOptions)
+}
+
+getType(data:any){
+  const url="https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudant.com/freshers_sample/_design/filtertype/_view/filtertype"
+  const keys = [data]
+  return this.http.post(url, keys, this.httpOptions)
 }
 
 //login function using node

@@ -38,20 +38,7 @@ export class ViewuserComponent implements OnInit {
 
       })
 
-        // console.log(res);
-        // console.log(this.obj.productid)
-
-    //     this.viewtable=res;
-    //     this.sample=this.viewtable.docs;
-    //  this.viewtable.docs.map((x:any)=>{
-    //   console.log(x)
-    //   this.viewVal.push(x)
-    //  })
-    //  console.log(this.viewVal)
-     
-      // })
-    // }
-  // );
+      
 
 
 

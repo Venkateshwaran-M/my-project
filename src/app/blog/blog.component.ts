@@ -56,18 +56,7 @@ export class BlogComponent implements OnInit {
    this.myobj1=localStorage.getItem('Lname')
    let localObject:any=localStorage.getItem('userId')
    console.log(localObject);
-  //  let temp = localObject.toString());
-  //  this.id=temp['_id'] 
-  //  console.log(this.id)
-  //  this.api.get("freshers_sample").subscribe(res=>{
-  //  console.log(res);
-  //  this.temp=res
-  //  this.sample=this.temp.rows;
-  //  this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='addproduct').map((x:any)=>x.doc)
-     
-  //    },_rej=>{
-  //      this.toastr.error("Cannot view products")
-  //    });
+ 
   this.api.getByTypes("addproduct").subscribe(res=>{
     console.log(res);
     this.prod=res;
@@ -97,14 +86,12 @@ storing(doc:any, _id:any){
     console.log(res);
     this.alluser=res;
     this.alluserData=this.alluser;
-    // console.log(this.alluser)
     this.toastr.success('Your product booking request has been received');
     this.route.navigate(
       ['/viewuser'],
       { queryParams: {'productid':this.alluser.id} }
     );
 
-    // this.type="order"
     this.api.getByType("order",this.alluser.id).subscribe(data=>{
       console.log(data)
       this.userid=this.id
