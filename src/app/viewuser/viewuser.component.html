@@ -1,6 +1,5 @@
 <div class="container">
-    User ID:
-    {{regid}}
+
     <h1>Your booking info</h1>
     <button class="btn btn-danger bi bi-person-circle mb-3" style="float: right;" (click)="logout()">
         Logout</button><br>
@@ -11,6 +10,7 @@
 
         <thead>
             <tr>
+                <th scope="col">Slno</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email Address</th>
                 <th scope="col">Mobile Number</th>
@@ -22,7 +22,8 @@
         <tbody>
             <tr *ngIf="viewVal.length==0" style="color: red;text-align: center;">No Records
             </tr>
-            <tr *ngFor="let user of viewVal">
+            <tr *ngFor="let user of viewVal; let i = index">
+                <td>{{i+1}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.mobile}}</td>

@@ -6,6 +6,8 @@
 
         <thead>
             <tr>
+                <th scope="col">Slno</th>
+
                 <th scope="col">Name</th>
                 <th scope="col">Email Address</th>
                 <th scope="col">Mobile Number</th>
@@ -15,7 +17,8 @@
         </thead>
 
         <tbody>
-            <tr *ngFor="let user of viewVal">
+            <tr *ngFor="let user of viewVal;let i=index">
+                <td>{{i+1}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
                 <td>{{user.mobile}}</td>

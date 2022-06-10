@@ -8,6 +8,7 @@
                 </caption>
                 <thead>
                     <tr>
+                        <th scope="col"><strong>Slno</strong> </th>
                         <th scope="col"><strong>Name</strong> </th>
                         <th scope="col"><strong>Product Name</strong></th>
                         <th scope="col"><strong>Feedback</strong></th>
@@ -16,7 +17,8 @@
                 </thead>
 
                 <tbody>
-                    <tr *ngFor="let user of viewVal">
+                    <tr *ngFor="let user of viewVal; let i=index">
+                        <td>{{i+1}}</td>
                         <td>{{user.Name}}</td>
                         <td>{{user.productname}}</td>
                         <td>{{user.feedback}}</td>

@@ -113,4 +113,12 @@ checkuserlogin(id:any)
  {
   return this.http.post<any>('http://localhost:8000/getdata/',id);
  }
+
+
+ getLocation(locationId: any[]){
+  const url=`https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudant.com/freshers_sample/_all_docs?include_docs=true&keys=["`+locationId.join('","')+`"]`
+  // https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudant.com/freshers_sample/_all_docs?include_docs=true&keys=["29d428e54800e329ad0f20e84ce1f0a3"]
+  return this.http.get(url,this.httpOptions)
+
+ }
 }

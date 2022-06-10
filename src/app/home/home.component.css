@@ -148,12 +148,14 @@ div#slider figure {
   top: 45%;
   left: 5%;
 }
-button {
+.loginbtn {
   border-radius: 0%;
-  background-color: darkgreen;
+  background-color: 197278;
 }
-button:hover {
+.loginbtn:hover,
+.move:hover {
   border-radius: 25px;
   transition: 1s ease-in-out;
-  background-color: black;
+  background-color: transparent;
+  border: 2px solid black;
 }
