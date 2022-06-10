@@ -29,7 +29,7 @@ export class AdminComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    
+    // code to be implemented
   }
 adlogin(obj:any){
   this.email=obj.email
