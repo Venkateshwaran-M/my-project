@@ -36,8 +36,8 @@ export class ViewuserComponent implements OnInit {
         }
         let locationId = lodash.uniq(this.viewVal.map((ele: { product: any; }) => ele['product']))
         console.log(locationId)
-        this.api.getLocation(locationId).subscribe((data:any)=>{
-          const lookupData=data.rows.map((el:any)=>el.doc)
+        this.api.getLocation(locationId).subscribe((datas:any)=>{
+          const lookupData=datas.rows.map((el:any)=>el.doc)
           this.viewVal.forEach((element:any) => {
             const product =lookupData.filter((el:any)=>el['_id'] === element['product'])[0]
             element['product']=product['addproduct']
