@@ -37,6 +37,7 @@ export class BlogComponent implements OnInit {
   loginid: any;
   allproduct: any;
   prod:any;
+  value: any;
   constructor(private fb:FormBuilder, private toastr:ToastrService, private api: ApiService, private route:Router) {    
       this.formGroup=this.fb.group({
         name:[this.userdetails.name],
@@ -91,7 +92,7 @@ storing(doc:any, _id:any){
     this.toastr.success('Your product booking request has been received');
     this.route.navigate(
       ['/viewuser'],
-      { queryParams: {'productid':this.alluser.id} }
+      // { queryParams: {'productid':this.alluserData._id} }
     );
 
     this.api.getByType("order",this.alluser.id).subscribe(data=>{
@@ -106,11 +107,23 @@ storing(doc:any, _id:any){
     this.toastr.error("Kindly fill the form")
     console.log(rej);
   });
+ 
+}
+getData(){
+  let fields: Array<string>=["_id","addproduct"]
+  this.type="addproduct"
+  this.api.gettingByTypes(this.type, fields).subscribe(res=>{
+    console.log(res);
+    this.value=res
+    this.temp=this.value.docs
+  })
 }
 cancel(){
   this.formGroup.reset();
 }
 logout(){
+  localStorage.clear();
+ 
   this.route.navigate(['log-in'])
   this.toastr.success("Logged Out Successfully!!! Please do visit us again😉")
 }

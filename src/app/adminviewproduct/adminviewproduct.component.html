@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Products launched so far</h1>
-
+    <div *ngIf="viewVal.length==0">No Products avalilabe</div>
     <div class="grid-container">
         <div *ngFor="let user of viewVal">
             <div class="grid-item">

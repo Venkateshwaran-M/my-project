@@ -18,7 +18,7 @@ export class ViewuserComponent implements OnInit {
   sample: any;
   viewVal: any =[];
   regid:any;
-
+ 
   constructor(private api:ApiService ,private toastr:ToastrService, private route:Router, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -44,5 +44,11 @@ export class ViewuserComponent implements OnInit {
 
 goBack(){
   this.route.navigate(['blog'])
+}
+logout(){
+  localStorage.clear();
+  this.route.navigate(['log-in'])
+
+  this.toastr.success("Logged Out Successfully!!! Please do visit us again😉")
 }
 }

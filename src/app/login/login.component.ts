@@ -25,13 +25,13 @@ db="freshers_sample";
   myObject: any;
   loginCredential: any;
   constructor(private fb: FormBuilder, private api:ApiService, private route:Router, private toastr:ToastrService) {
-    {
+    
       this.formGroup = this.fb.group({
         email:[this.user.email],
         password:[this.user.password],
         type:[this.user.type]
       });
-    }
+    localStorage.setItem("role","user")
    }
 
   ngOnInit(): void {
@@ -50,29 +50,40 @@ login(formvalue:any){
  this.api.checkuserlogin(datas).subscribe(data=>{
   this.loginUser=data.docs[0]
   console.log(this.loginUser)
-  localStorage.setItem('userId',(this.loginUser._id))
   if (data.docs.length <= 0) {
     this.toastr.error("Invalid credentials");
   }
-  if (data.docs[0].email === formvalue.email) 
-  {
-    if (data.docs[0].password === formvalue.password) 
+ else
+ { 
+   if (data.docs[0].email === formvalue.email) {
+  localStorage.setItem('userId',(this.loginUser._id))
+   }
+ }
+  
+
+    
+ if (data.docs[0].password === formvalue.password) 
     {
       this.toastr.success("Login Successfully");
-      this.route.navigate(['/blog'],
-       { queryParams: this.loginUser   })
-    } else {
-      this.toastr.error("Enter Correct Password");
+      this.route.navigate(['/blog']);
+      //  { queryParams: this.loginUser   })
     }
+  else {
+      this.toastr.error("Enter Correct Password");
   }
-    })
+ },rej=>{
+   console.log(rej); })
+}
+
+
   
- }
+ 
  cancel(){
    this.formGroup.reset()
  }
 
 }
+
 
 
 

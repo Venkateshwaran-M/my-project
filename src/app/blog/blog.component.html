@@ -14,7 +14,7 @@
         <div *ngFor="let user of allproduct">
             <div class="grid-item">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{user.image}}" alt="">
+                    <img class="card-img-top" src="{{user.image}}" alt="image">
                     <div class="card-body">
                         <h5 class="card-title">Product Name:{{user.addproduct}}</h5>
                         <p class="card-text text text-success">Price:₹{{user.price}}</p>
@@ -55,7 +55,7 @@
 
 
         <select class="form-select" aria-label="Default select example" formControlName="product">
-            <option *ngFor="let user of allproduct" value="{{user.addproduct}}">{{user.addproduct}}</option>
+            <option *ngFor="let user of allproduct" [ngValue]="user._id">{{user.addproduct}}</option>
 
         </select>
 

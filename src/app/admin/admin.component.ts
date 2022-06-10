@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
   admin:any={
     email:'',
     password:'',
-    type:'adminlogin'
+    type:'login'
   };
   db="freshers_sample";
   email: any;
@@ -29,9 +29,9 @@ export class AdminComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    // code to be implemented
+    
   }
-adminlogin(obj:any){
+adlogin(obj:any){
   this.email=obj.email
   this.password=obj.password
   console.log(this.email)
@@ -41,6 +41,8 @@ adminlogin(obj:any){
     console.log(data);
     if((data.docs[0].password == this.password && data.docs[0].email==this.email)){
       this.toastr.success('Admin Login Success');
+      localStorage.setItem("role","admin")
+      localStorage.setItem('userId',(data.docs[0]._id))
       this.route.navigate(['addproduct']);
     }
     else {

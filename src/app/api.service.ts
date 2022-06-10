@@ -56,6 +56,19 @@ deleteData(id: any, rev: any): Observable<{}> {
   const urld = this.url + 'freshers_sample/' + id + '/?rev=' + rev;
   return this.http.delete(urld, this.httpOptions);
 }
+
+gettingByTypes(type:string,fields:any){
+  let url=this.url+'freshers_sample/_find'
+  let typeData={
+    selector:{
+      type:type,
+      
+    },
+    fields:fields
+  };
+  return this.http.post(url, typeData,this.httpOptions)
+
+}
     //get docs by type
 getByType(type:string, id:any){
   let url =this.url + 'freshers_sample/_find'

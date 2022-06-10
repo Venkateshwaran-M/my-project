@@ -13,3 +13,11 @@
   right: 350px;
   margin-top: 10px;
 }
+.offcanvas-body {
+  top: 100%;
+}
+.btn1 {
+  display: flex;
+  margin-right: 5px;
+  border: 2px solid black;
+}

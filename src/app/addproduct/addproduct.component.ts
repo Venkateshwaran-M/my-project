@@ -79,6 +79,7 @@ export class AddProductComponent implements OnInit {
   this.route.navigate(['regusers']);
 }
 logout(){
+  localStorage.clear();
   this.route.navigate(['admin']);
   this.toastr.success("Logout Successful");
 }
