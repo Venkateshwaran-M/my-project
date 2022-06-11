@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { FormGroup,FormControl } from '@angular/forms';
 import { ApiService } from '../api.service';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -31,9 +30,9 @@ export class EditComponent implements OnInit {
   this.setValueToForm();
 
 
-  this.api.getByTypes("addproduct").subscribe(res=>{
-    console.log(res);
-    this.prod=res;
+  this.api.getByTypes("addproduct").subscribe(data=>{
+    console.log(data);
+    this.prod=data;
     this.allproduct=this.prod.docs;
     console.log(this.allproduct)
   })
@@ -64,12 +63,3 @@ export class EditComponent implements OnInit {
    })
   }
 }
-// address: "17,Ayyappan nagar chennai"
-// email: "baskar@gmail.com"
-// mobile: 1234567890
-// name: "venkateshwaran"
-// product: "Ship Management System"
-// type: "order"
-// user: "675196992d69a9ceda65d198612fe77f"
-// _id: "19b33695ab90e60ab1f4e2b4831971c4"
-// _rev: "1-00129a25fd4b5b989b2a33b784080784"
