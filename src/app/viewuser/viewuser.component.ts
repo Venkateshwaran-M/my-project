@@ -9,11 +9,7 @@ import * as lodash from 'lodash'
   styleUrls: ['./viewuser.component.css']
 })
 export class ViewuserComponent implements OnInit {
-  obj1: any;
-  obj2: any;
-  obj3: any;
-  obj4: any;
-  obj5: any;
+  
   obj: any;
   viewtable: any ;
   sample: any;

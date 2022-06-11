@@ -14,11 +14,10 @@ export class EditComponent implements OnInit {
   id: any;
   rev: any;
   regid:any;
-
   constructor(private acroute:ActivatedRoute,private api:ApiService, private router:Router) { }
 
   ngOnInit(): void {
-    this.regid=localStorage.getItem("userId");   
+  this.regid=localStorage.getItem("userId");   
   this.acroute.queryParams.subscribe(res=>{
   this.temp=res
   this.id=this.temp.data
@@ -61,5 +60,6 @@ export class EditComponent implements OnInit {
     alert("Data Modified Successfully")
     this.router.navigate(['viewuser'],{queryParams:{data:this.temp._id}})
    })
+   
   }
 }
