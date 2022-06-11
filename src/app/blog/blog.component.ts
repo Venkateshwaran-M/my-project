@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
     mobile:'',
     address:'',
     product:'',
-    type:'order'
+  type:'order'
   }
   alluser: any;
   formdata: any;
@@ -104,7 +104,7 @@ storing(doc:any, _id:any){
     localStorage.setItem("myId",this.myid);
     })
   },rej=>{
-    this.toastr.error("Kindly fill the form")
+    // this.toastr.error("Kindly fill the form")
     console.log(rej);
   });
  

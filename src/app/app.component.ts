@@ -20,7 +20,7 @@ export class AppComponent {
         this.route.navigate(['blog'])
       }
       else if(role=="admin"){
-        this.route.navigate(['adminviewproduct'])
+        this.route.navigate(['addproduct'])
       }
     }
   }

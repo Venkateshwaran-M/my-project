@@ -16,6 +16,10 @@
                 <th scope="col">Mobile Number</th>
                 <th scope="col">address</th>
                 <th scope="col">Product Booked</th>
+                <th scope="col">view</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Cancel Booking</th>
+
             </tr>
         </thead>
 
@@ -29,6 +33,9 @@
                 <td>{{user.mobile}}</td>
                 <td>{{user.address}}</td>
                 <td>{{user.product}}</td>
+                <td><button class="btn btn-primary" (click)="view(user._id)">View</button></td>
+                <td><button class="btn btn-success" (click)="edit(user._id,user._rev)">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="deleteuser(user._id,user._rev)">Delete</button></td>
             </tr>
         </tbody>
     </table>

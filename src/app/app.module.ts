@@ -37,6 +37,8 @@ import { StorecontactdetailsComponent } from './storecontactdetails/storecontact
 import { ViewuserComponent } from './viewuser/viewuser.component';
 import { AdminviewproductComponent } from './adminviewproduct/adminviewproduct.component';
 import { RegusersComponent } from './regusers/regusers.component';
+import { ViewComponent } from './view/view.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -62,7 +64,9 @@ const routes: Routes = [
   {path:'usercontactdetails',component:StorecontactdetailsComponent},
   {path:'viewuser',component:ViewuserComponent},
   {path:'adminviewproduct',component:AdminviewproductComponent},
-  {path:'regusers',component:RegusersComponent}
+  {path:'regusers',component:RegusersComponent},
+  {path:'view',component:ViewComponent},
+  {path:'edit',component:EditComponent}
 
 ];
 
@@ -94,7 +98,9 @@ const routes: Routes = [
     StorecontactdetailsComponent,
     ViewuserComponent,
     AdminviewproductComponent,
-    RegusersComponent
+    RegusersComponent,
+    ViewComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

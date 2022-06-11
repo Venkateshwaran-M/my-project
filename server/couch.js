@@ -6,9 +6,6 @@ const app = express();
 const port = 8000;
 
 
-// process.on('uncaughtException', function (exception) {
-//     console.log(exception)
-// })
 
 app.use(cors({
     origin: 'http://localhost:4200'
@@ -51,19 +48,9 @@ app.post('/postdata', function (req, res) {
         res.status(400).send({
             message: err
         })
-        // });
     }));
 });
-// app.post('/mail', (request, response, next) => {
 
-//     var object = {
-//         firstname: request.body.firstName,
-//         lastName: request.body.lastName,
-//         email: request.body.email,
-//         password: request.body.password,
-//     }
-//     console.log(object);
-// })
 
 app.listen(port, (err) => {
     if (err) {

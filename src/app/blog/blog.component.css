@@ -12,7 +12,7 @@
   text-align: center;
 }
 .grid-item:hover {
-  background-color: azure;
+  /* background-color: azure; */
   transition: 1s ease-in;
   border-radius: 2px;
 }

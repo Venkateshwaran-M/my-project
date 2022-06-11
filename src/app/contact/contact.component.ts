@@ -52,9 +52,10 @@ export class ContactComponent  implements OnInit{
 storing(Formvalue:any)
 {
    this.api.add("freshers_sample",this.formGroup.value).subscribe(res => {
-    this.toastr.success("Contact details submitted successfully")
     console.log(Formvalue);
     console.log(res); 
+    this.toastr.success("Contact details submitted successfully")
+
 },_rej=>{
   this.toastr.error("Cannot Post Data until field are empty",_rej)
 });

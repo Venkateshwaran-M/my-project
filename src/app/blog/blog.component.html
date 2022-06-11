@@ -33,22 +33,43 @@
         <div class="mb-3">
             <strong> <label for="exampleInputFirstName1" class="form-label">Name*</label></strong>
             <input type="text" class="form-control" formControlName="name" id="exampleInputFirstName1"
-                aria-describedby="emailHelp">
+                aria-describedby="emailHelp" required />
+            <div class="help-block text-danger" *ngIf="name.touched">
+                <span *ngIf="name.errors?.required">
+                    First Name is a required field*
+                </span>
+
+            </div>
         </div>
         <div class="mb-3">
             <strong> <em class="bi bi-envelope-fill"></em> <label for="exampleInputEmail1" class="form-label">Email
                     address*</label></strong>
-            <input type="email" value="{{obj}}" formControlName="email" class="form-control" id="exampleInputEmail1">
+            <input type="email" value="{{obj}}" formControlName="email" class="form-control" id="exampleInputEmail1"
+                required />
+            <div class="help-block text-danger" *ngIf="email.touched">
+
+                <span *ngIf="email.errors?.required">Email is a required field*</span>
+            </div>
         </div>
         <div class="mb-3">
             <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1" class="form-label">Mobile
                     Number*</label></strong>
-            <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1">
+            <input type="number" formControlName="mobile" class="form-control" maxlength="10"
+                oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                id="exampleInputmobile1" required />
+            <div class="help-block text-danger" *ngIf="mobile.touched">
+
+                <span *ngIf="mobile.errors?.required">Mobile number is a required field*</span>
+            </div>
         </div>
         <div class="mb-3">
             <strong> <em class="bi bi-geo-alt-fill"></em> <label for="exampleInputleadsource1"
                     class="form-label">Address*</label></strong>
-            <input type="text" formControlName="address" class="form-control" id="exampleInputaddress1">
+            <input type="text" formControlName="address" class="form-control" id="exampleInputaddress1" required />
+            <div class="help-block text-danger" *ngIf="address.touched">
+
+                <span *ngIf="address.errors?.required">Address is a required field*</span>
+            </div>
         </div>
 
         <strong> <em class="bi bi-basket3-fill"></em><label>Choose a product*</label></strong>

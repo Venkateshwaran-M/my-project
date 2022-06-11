@@ -121,4 +121,14 @@ checkuserlogin(id:any)
   return this.http.get(url,this.httpOptions)
 
  }
+//  deleteData(id: any, rev: any): Observable<{}> {
+//   const urld = this.url + 'energy-management-login/' + id + '/?rev=' + rev;
+//   return this.http.delete(urld, this.httpOptions);
+// }
+updateDataUser(changedValue: object, id: number, rev: number) {
+  const changeObj = changedValue;
+  const url = `${this.url + 'freshers_sample/'}/${id}?rev=${rev}`;
+  return this.http.put(url, changeObj, this.httpOptions);
+}
+
 }

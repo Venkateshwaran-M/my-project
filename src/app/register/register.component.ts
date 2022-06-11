@@ -60,8 +60,9 @@ storing(Formvalue:any)
       this.toastr.success("Sign-up Succesfully")
       this.route.navigate(['log-in']); 
       console.log("data returned from server",data);  
-    },err=>{
-      this.toastr.error("Cant register",err)
+    },_rej=>{
+      this.toastr.error("Cant  able to register")
+      
     }) 
   }
 }
