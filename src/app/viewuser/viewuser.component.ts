@@ -81,6 +81,7 @@ edit(id:any,rev:any){
 }
 deleteuser(id:any,rev:any){
   this.api.deleteData(id,rev).subscribe(res=>{
+    console.log(res)
     this.toastr.error("Data Deleted Successfully","Data Deleted");
     this.route.navigate(['viewuser'])
     window.location.reload()
