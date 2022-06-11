@@ -15,8 +15,8 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void {
     this.acroute.queryParams.subscribe(res=>{
       this.temp=res.data
-      this.api.getById("freshers_sample/",this.temp).subscribe(res=>{
-        this.temp=res
+      this.api.getById("freshers_sample/",this.temp).subscribe(response=>{
+        this.temp=response
         console.log(this.temp)
         
       })
