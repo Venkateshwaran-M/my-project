@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FormGroup,FormControl } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -14,7 +15,7 @@ export class EditComponent implements OnInit {
   id: any;
   rev: any;
   regid:any;
-  constructor(private acroute:ActivatedRoute,private api:ApiService, private router:Router) { }
+  constructor(private acroute:ActivatedRoute,private api:ApiService, private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
   this.regid=localStorage.getItem("userId");   
@@ -57,9 +58,12 @@ export class EditComponent implements OnInit {
    console.log(doc) 
    this.api.updateDataUser(doc,this.id,this.rev).subscribe(res=>{
     console.log("updated data is",res)
-    alert("Data Modified Successfully")
+    this.toastr.success("Data Modified Successfully")
     this.router.navigate(['viewuser'],{queryParams:{data:this.temp._id}})
    })
    
+  }
+  routing(){
+    this.router.navigate(['viewuser'])
   }
 }

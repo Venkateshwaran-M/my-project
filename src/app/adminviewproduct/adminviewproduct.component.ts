@@ -31,8 +31,9 @@ export class AdminviewproductComponent implements OnInit {
   }
 deleteProduct(id:any,rev:any){
   this.api.deleteData(id,rev).subscribe((data)=>{
-    console.log(data);
     this.toastr.warning('Product deleted');
+    console.log(data);
+
    window.location.reload();
    })
 }
