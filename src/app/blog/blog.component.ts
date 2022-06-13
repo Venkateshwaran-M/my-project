@@ -92,7 +92,6 @@ storing(doc:any, _id:any){
     this.toastr.success('Your product booking request has been received');
     this.route.navigate(
       ['/viewuser'],
-      // { queryParams: {'productid':this.alluserData._id} }
     );
 
     this.api.getByType("order",this.alluser.id).subscribe(data=>{
@@ -104,7 +103,6 @@ storing(doc:any, _id:any){
     localStorage.setItem("myId",this.myid);
     })
   },rej=>{
-    // this.toastr.error("Kindly fill the form")
     console.log(rej);
   });
  

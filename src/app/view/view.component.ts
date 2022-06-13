@@ -19,6 +19,8 @@ export class ViewComponent implements OnInit {
         this.temp=response
         console.log(this.temp)
         
+      },rej=>{
+        console.log(rej)
       })
      
     })
