@@ -117,14 +117,10 @@ checkuserlogin(id:any)
 
  getLocation(locationId: any[]){
   const url=`https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudant.com/freshers_sample/_all_docs?include_docs=true&keys=["`+locationId.join('","')+`"]`
-  // https://99560248-15e7-4158-bfde-3c13e3ebf4e9-bluemix.cloudant.com/freshers_sample/_all_docs?include_docs=true&keys=["29d428e54800e329ad0f20e84ce1f0a3"]
   return this.http.get(url,this.httpOptions)
 
  }
-//  deleteData(id: any, rev: any): Observable<{}> {
-//   const urld = this.url + 'energy-management-login/' + id + '/?rev=' + rev;
-//   return this.http.delete(urld, this.httpOptions);
-// }
+
 updateDataUser(changedValue: object, id: number, rev: number) {
   const changeObj = changedValue;
   const url = `${this.url + 'freshers_sample/'}/${id}?rev=${rev}`;
