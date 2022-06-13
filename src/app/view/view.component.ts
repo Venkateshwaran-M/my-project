@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import * as lodash from 'lodash';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -22,15 +21,13 @@ export class ViewComponent implements OnInit {
         
         this.temp=response
         console.log(this.temp)
-        
+     
         
       },rej=>{
         console.log(rej)
       })
      
     })
-
-    
   }
    back(){
     this.route.navigate(['viewuser'])
