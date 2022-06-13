@@ -53,6 +53,7 @@ export class EditComponent implements OnInit {
     this.formGroup.setValue({ name: this.temp.name, email: this.temp.email, mobile: this.temp.mobile,  address: this.temp. address, product: this.temp. product })
   }
   updataData(doc:any){
+
    doc['type']='order'
    doc['user']=this.regid
    console.log(doc) 
@@ -60,6 +61,8 @@ export class EditComponent implements OnInit {
     console.log("updated data is",res)
     this.toastr.success("Data Modified Successfully")
     this.router.navigate(['viewuser'],{queryParams:{data:this.temp._id}})
+   },rej=>{
+    console.log("sorry unable to modify the data"+rej)
    })
    
   }

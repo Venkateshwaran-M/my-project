@@ -66,7 +66,7 @@ export class BlogComponent implements OnInit {
     this.toastr.error("Cant view product at this moment",rej)
   }
   )
-    }
+}
 get name(){
   return this.formGroup.get('name')!;
 }
