@@ -1,13 +1,14 @@
 <div class="container one ">
-    <img src="../../assets/images/Shipmatelogo-removebg-preview.png" class="logoimg" alt="logo">
-    <div class="user mb-3">
+    <div class="user  mb-3">
         <em class=" bi bi-person-circle">
             Logged in User, Welcome {{loginid}}<br>
         </em>
-        <button class="btn btn-danger bi bi-person-circle mb-3" (click)="logout()"> Logout</button><br>
+        <button class=" btn btn-danger bi bi-person-circle mb-3 move" (click)="logout()"> Logout</button>
         <button class="btn btn-danger bi bi-person-circle mb-3" routerLink="/viewuser"> My Bookings</button>
     </div>
-    <h1 style="text-align: center; background-color: red; color: white;">PRODUCTS AVAILABLE RIGHT NOW</h1>
+    <h1 style="text-align: center; background-color: red; color: white;">PRODUCTS AVAILABLE
+        RIGHT NOW</h1>
+    <hr>
     <div class="grid-container">
         <div *ngFor="let user of allproduct">
             <div class="grid-item">

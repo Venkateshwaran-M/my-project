@@ -1,8 +1,11 @@
 <div class="container">
     <h1 style="text-align: center; background-color:red; color:white">PRODUCTS LAUNCHED SO FAR</h1>
-    <div *ngIf="viewVal.length==0">No Products avalilabe</div>
+    <hr>
     <div class="grid-container">
+
         <div *ngFor="let user of viewVal">
+            <div *ngIf="viewVal.length==0">No Products avalilabe</div>
+
             <div class="grid-item">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="{{user.image}}" alt="product image">
@@ -11,7 +14,7 @@
                         <p class="card-text text text-success">Price:₹{{user.price}}</p>
                         <p class="card-text">Description:{{user.description}}</p>
                         <td><button class="btn btn-danger bi bi-trash3-fill"
-                                (click)="deleteProduct(user._id,user._rev)">Delete this
+                                (click)="deleteProduct(user._id,user._rev)">Delete
                                 Product</button></td>
                     </div>
                 </div>

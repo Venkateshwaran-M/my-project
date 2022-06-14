@@ -59,7 +59,7 @@ export class AddProductComponent implements OnInit {
       this.alluser=res;
       window.location.reload();
     },rej=>{
-      this.toastr.error("Something Went wrong",rej);
+      console.log(rej)
     }
     );
   }
