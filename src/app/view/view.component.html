@@ -7,32 +7,44 @@
 
 
         <thead>
+
             <tr>
-                <th scope="rowgroup">Slno</th>
-
                 <th scope="rowgroup">Name</th>
+                <td>{{temp.name}}</td>
 
+            </tr>
+            <tr>
                 <th scope="rowgroup">Email Address</th>
-                <th scope="rowgroup">Mobile Number</th>
-                <th scope="rowgroup">address</th>
-                <th scope="rowgroup">Product Booked</th>
+                <td>{{temp.email}}</td>
 
 
             </tr>
-        </thead>
-
-        <tbody>
-
             <tr>
-                <td>1</td>
-                <td>{{temp.name}}</td>
-                <td>{{temp.email}}</td>
+                <th scope="rowgroup">Mobile Number</th>
                 <td>{{temp.mobile}}</td>
+
+
+            </tr>
+            <tr>
+
+                <th scope="rowgroup">address</th>
                 <td>{{temp.address}}</td>
+
+
+            </tr>
+            <tr>
+                <th scope="rowgroup">Product Booked</th>
                 <td>{{temp.product}}</td>
 
             </tr>
-        </tbody>
+            <tr>
+
+            </tr>
+
+
+        </thead>
+
+
     </table>
     <button class="btn btn-dark bi bi-arrow-left mb-3" (click)="back()">Back</button>
 </div>
