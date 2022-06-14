@@ -1,39 +1,42 @@
-<form [formGroup]="formGroup" class="container" (ngSubmit)="updataData(this.formGroup.value)">
-    <div class="mb-3">
-        <strong> <label for="exampleInputFirstName1" class="form-label">Name*</label></strong>
-        <input type="text" class="form-control" formControlName="name" id="exampleInputFirstName1"
-            aria-describedby="emailHelp" required />
+<div class="container">
+    <form [formGroup]="formGroup" class="container" (ngSubmit)="updataData(this.formGroup.value)">
+        <div class="mb-3">
+            <strong> <label for="exampleInputFirstName1" class="form-label">Name*</label></strong>
+            <input type="text" class="form-control" formControlName="name" id="exampleInputFirstName1"
+                aria-describedby="emailHelp" required />
 
-    </div>
-    <div class="mb-3">
-        <strong> <em class="bi bi-envelope-fill"></em> <label for="exampleInputEmail1" class="form-label">Email
-                address*</label></strong>
-        <input type="email" id="email" formControlName="email" class="form-control" id="exampleInputEmail1" required />
+        </div>
+        <div class="mb-3">
+            <strong> <em class="bi bi-envelope-fill"></em> <label for="exampleInputEmail1" class="form-label">Email
+                    address*</label></strong>
+            <input type="email" id="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+                required />
 
-    </div>
-    <div class="mb-3">
-        <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1" class="form-label">Mobile
-                Number*</label></strong>
-        <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1" required />
+        </div>
+        <div class="mb-3">
+            <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1" class="form-label">Mobile
+                    Number*</label></strong>
+            <input type="number" formControlName="mobile" class="form-control" id="exampleInputmobile1" required />
 
-    </div>
-    <div class="mb-3">
-        <strong> <em class="bi bi-geo-alt-fill"></em> <label for="exampleInputleadsource1"
-                class="form-label">Address*</label></strong>
-        <input type="text" formControlName="address" class="form-control" id="exampleInputaddress1" required />
+        </div>
+        <div class="mb-3">
+            <strong> <em class="bi bi-geo-alt-fill"></em> <label for="exampleInputleadsource1"
+                    class="form-label">Address*</label></strong>
+            <input type="text" formControlName="address" class="form-control" id="exampleInputaddress1" required />
 
-    </div>
+        </div>
 
-    <strong> <em class="bi bi-basket3-fill"></em><label>Choose a product*</label></strong>
-
-
-    <select class="form-select" aria-label="Default select example" formControlName="product">
-        <option *ngFor="let user of allproduct" [ngValue]="user._id">{{user.addproduct}}</option>
-
-    </select>
+        <strong> <em class="bi bi-basket3-fill"></em><label>Choose a product*</label></strong>
 
 
-    <button type="submit" class="btn btn-warning mt-3 mb-3">Confirm
-        Booking
-    </button>
-</form>
+        <select class="form-select" aria-label="Default select example" formControlName="product">
+            <option *ngFor="let user of allproduct" [ngValue]="user._id">{{user.addproduct}}</option>
+
+        </select>
+
+
+        <button type="submit" class="btn btn-warning mt-3 mb-3">Confirm
+            Booking
+        </button>
+    </form>
+</div>

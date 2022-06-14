@@ -1,16 +1,12 @@
 .container {
-  /* margin-bottom: 20px; */
   background-color: #a3cef1;
   width: 75%;
 }
 .body {
-  /* background-color: hsla(177, 94%, 62%, 0.8); */
   margin-top: 130px;
   margin-bottom: 10px;
 }
-/* .body:hover {
-  background-color: rgb(79, 157, 241);
-}  */
+
 input:hover,
 textarea:hover,
 select:hover {
@@ -26,4 +22,8 @@ input,
 textarea,
 select {
   opacity: 0.8;
+}
+.header {
+  background-color: #0e79b2;
+  color: white;
 }
