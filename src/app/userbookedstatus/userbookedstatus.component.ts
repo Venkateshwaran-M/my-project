@@ -48,25 +48,4 @@ goBack(){
 
 
 
-  //   this.api.get("freshers_sample").subscribe(res=>{
-  //     console.log(res);
-  //     this.temp=res
-  //     this.sample=this.temp.rows;
-  //     this.viewVal = this.temp.rows.filter((x:any)=>x.doc.type=='order').map((x:any)=>x.doc)
-  //     console.log(this.viewVal);
-
-  //     // this.productIds = this.viewVal
-
-  //     for (let i = 0; i < this.viewVal.length; i++) {
-  //     this.productIds[i] = this.viewVal[i].product;
-        
-  //     }
-  //     console.log(this.productIds);
-
-      
-
-    
-
-  // },rej=>{
-  //   alert("cannot post data"+rej);
-  // });
+ 

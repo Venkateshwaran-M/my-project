@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
-import * as lodash from 'lodash'
 
 @Component({
   selector: 'app-view',
@@ -23,9 +22,9 @@ export class ViewComponent implements OnInit {
         
         this.temp=response;
         console.log(response);
-        this.api.getById("freshers_sample/",this.temp.product).subscribe(res=>{
-        console.log(res)
-        this.product=res
+        this.api.getById("freshers_sample/",this.temp.product).subscribe(data=>{
+        console.log(data)
+        this.product=data
         this.product=this.product.addproduct
         this.temp['product']=this.product
         console.log(this.product)
@@ -42,11 +41,3 @@ export class ViewComponent implements OnInit {
     this.route.navigate(['viewuser'])
    }
 }
-// let locationId = lodash.uniq(this.viewVal.map((ele: { product: any; }) => ele['product']))
-// console.log(locationId)
-// this.api.getLocation(locationId).subscribe((datas:any)=>{
-//   const lookupData=datas.rows.map((el:any)=>el.doc)
-//   this.viewVal.forEach((element:any) => {
-//     const product =lookupData.filter((el:any)=>el['_id'] === element['product'])[0]
-//     element['product']=product['addproduct']
-//   });
