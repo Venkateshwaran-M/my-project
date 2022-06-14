@@ -2,7 +2,8 @@
     <div class="container">
         <div class="d-flex justify-content-center backcolor">
             <form [formGroup]="formGroup" (ngSubmit)="storing(this.formGroup.value)">
-                <h1>Register to shipmate account</h1>
+                <h1 style="text-align: center; color: white;">REGISTER TO SHIPMATE ACCOUNT</h1>
+                <hr>
                 <div class="form-group">
                     <strong> <label for="firstName">First Name</label></strong>
                     <input id="firstName" class="form-control has-validation" formControlName="firstName"
@@ -13,14 +14,13 @@
                         </span>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <strong> <label for="lname">Last Name</label></strong>
                     <input id="lname" class="form-control" formControlName="lastName" required />
+                    <div class="help-block text-danger" *ngIf="lastName.touched">
+                        <span *ngIf="lastName.errors?.required"> Last name is REQUIRED!!! </span>
+                    </div>
                 </div>
-
-
-
                 <div class="form-group">
                     <strong> <label for="email">Email</label></strong>
                     <input id="email" class="form-control has-validation" formControlName="email"
@@ -41,7 +41,9 @@
 
                 <div class="form-group">
                     <strong> <label for="mobile">Mobile Number</label></strong>
-                    <input id="mobile" type="number" class="form-control has-validation" formControlName="mobile"
+                    <input id="mobile" type="number"
+                        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                        maxlength="10" class="form-control has-validation" formControlName="mobile"
                         placeholder="Enter your phone #" />
                     <div class="help-block text-danger" *ngIf="mobile.touched">
                         <span *ngIf="mobile.errors?.required"> Mobile number is REQUIRED!!! </span>

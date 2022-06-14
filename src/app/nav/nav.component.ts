@@ -53,8 +53,8 @@ db="freshers_sample";
 get firstName(){
   return this.formGroup.get('firstName')!;
 }
-get lastName(){
-  return this.formGroup.get('lastName')!;
+get lastname(){
+  return this.formGroup.get('lastname')!;
 }
 get email(){
   return this.formGroup.get('email')!;
@@ -77,7 +77,7 @@ storing(formdata:NgForm){
     this.alluser.reset();
 
   },rej=>{
-    this.toastr.error("Required Fields are Empty",rej)
+    console.log(rej)
   });
 }
 }

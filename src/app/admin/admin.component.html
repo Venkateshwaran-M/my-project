@@ -1,5 +1,6 @@
 <div class="container margin">
-    <h1 style="text-align: center;">Admin login</h1>
+    <h1 style="text-align: center; color: white;">ADMIN LOGIN</h1>
+    <hr>
 
     <form [formGroup]="formGroup">
         <div class="form-outline mb-4">
@@ -16,6 +17,7 @@
             <input type="password" id="form2Example2" placeholder="Enter Password" class="form-control"
                 formControlName="password" />
         </div>
+        <hr>
         <button type="button" class="btn btn-primary  margin1 mb-4"
             (click)="adlogin(this.formGroup.value)">LOG-in</button>
     </form>

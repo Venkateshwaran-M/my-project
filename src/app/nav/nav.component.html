@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#c6eeec; ">
-    <!--#e3f2fd;-->
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img src="../../assets/images/Shipmatelogo-removebg-preview.png" class="image" alt="logo">
@@ -84,7 +83,12 @@
                     <div class="mb-3">
                         <strong> <label for="exampleInputLastName" class="form-label">Last Name*</label></strong>
                         <input type="text" formControlName="lastname" placeholder="Enter last name" class="form-control"
-                            id="exampleInputLastName">
+                            id="exampleInputLastName" required />
+                        <div class="help-block text-danger" *ngIf="lastname.touched">
+                            <span *ngIf="lastname.errors?.required">
+                                last name is REQUIRED!!!
+                            </span>
+                        </div>
                     </div>
                     <div class="mb-3">
                         <strong> <em class="bi bi-person-circle"></em> <label for="exampleInputEmail1"
@@ -93,12 +97,23 @@
                         <input type="email" placeholder="Enter your email address" formControlName="email"
                             class="form-control" id="exampleInputEmail1">
                     </div>
+                    <div class="help-block text-danger" *ngIf="email.touched">
+                        <span *ngIf="email.errors?.required">
+                            email is REQUIRED!!!
+                        </span>
+                    </div>
+
                     <div class="mb-3">
                         <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1"
                                 class="form-label">Mobile
                                 Number*</label></strong>
                         <input type="number" placeholder="Enter Mobile Number" formControlName="mobile"
-                            class="form-control" id="exampleInputmobile1">
+                            class="form-control" id="exampleInputmobile1" required />
+                    </div>
+                    <div class="help-block text-danger" *ngIf="mobile.touched">
+                        <span *ngIf="mobile.errors?.required">
+                            Mobile is REQUIRED!!!
+                        </span>
                     </div>
 
                     <strong> <em class="bi bi-envelope-fill"></em> <label>Lead Source*</label></strong>

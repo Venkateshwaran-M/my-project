@@ -10,21 +10,22 @@ import * as lodash from 'lodash'
 })
 export class ViewuserComponent implements OnInit {
   
-  obj: any;
-  viewtable: any ;
-  sample: any;
-  viewVal: any =[];
-  regid:any;
-  temp:any;
-  constructor(private api:ApiService ,private toastr:ToastrService, private route:Router, private router:ActivatedRoute) { 
+obj: any;
+viewtable: any ;
+sample: any;
+viewVal: any =[];
+regid:any;
+temp:any;
+constructor(private api:ApiService ,private toastr:ToastrService, private route:Router, private router:ActivatedRoute) { 
 
-  }
-  ngOnInit(): void {
-    this.regid=localStorage.getItem("userId");    
+}
+ngOnInit(): void {
+this.regid=localStorage.getItem("userId");
     this.getDataByView()  
      
   }
   getDataByView(){
+    this.viewVal=[];
     const data = {
       "keys": [ "order" + this.regid ], 
       "include_docs": true
@@ -33,9 +34,11 @@ export class ViewuserComponent implements OnInit {
       console.log(res);
       this.viewtable =res;
       this.viewtable=this.viewtable.rows;
+      if(this.viewtable.length>0){
       for(const i of this.viewtable){
         this.viewVal.push(i.doc)
       }
+      
       let locationId = lodash.uniq(this.viewVal.map((ele: { product: any; }) => ele['product']))
       console.log(locationId)
       this.api.getLocation(locationId).subscribe((datas:any)=>{
@@ -46,12 +49,18 @@ export class ViewuserComponent implements OnInit {
         });
         console.log("Data",data)
        
-
+      
         })
-    },rej=>{
+    }else{
+      this.viewVal=[];
+    }
+  },rej=>{
       this.toastr.error("Cant View Your Booked Status",rej)
     });
+  
+    
   }
+
 goBack(){
   this.route.navigate(['blog'])
 }
@@ -79,10 +88,10 @@ deleteuser(id:any,rev:any){
   this.api.deleteData(id,rev).subscribe(res=>{
     console.log(res)
     this.toastr.error("Data Deleted Successfully","Data Deleted");
-    this.route.navigate(['viewuser'])
-    window.location.reload()
+    // this.route.navigate(['viewuser'])
+    // window.location.
 
-    this.getDataByView()  ;
+    this.getDataByView();
   },rej=>{
     console.log(rej.error)
   })
