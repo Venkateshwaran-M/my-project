@@ -17,7 +17,6 @@ export class ContactComponent  implements OnInit{
     location: '',
     mobile: '',
     type:'Additionalinfo',
-
   };
   db="freshers_sample";
   myobj: any;

@@ -28,7 +28,7 @@ app.post('/getdata', (req, res) => {
     dbconnection.fresher.find(object).then((data => {
 
 
-        console.log("firstname", data);
+        console.log("data", data);
         res.json(data);
 
     }))
