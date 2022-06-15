@@ -73,7 +73,7 @@ storing(formdata:NgForm){
     console.log(formdata);
     console.log(res);
     this.alluser=res;
-    this.toastr.success("Message sent successfully please wait for our response")
+    this.toastr.success("Message sent successfully ")
     this.alluser.reset();
 
   },rej=>{

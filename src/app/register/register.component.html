@@ -10,7 +10,7 @@
                         placeholder="FirstName Required" required />
                     <div class="help-block text-danger" *ngIf="firstName.touched">
                         <span *ngIf="firstName.errors?.required">
-                            First Name is REQUIRED!!!
+                            First Name is required field*
                         </span>
                     </div>
                 </div>
@@ -18,7 +18,7 @@
                     <strong> <label for="lname">Last Name</label></strong>
                     <input id="lname" class="form-control" formControlName="lastName" required />
                     <div class="help-block text-danger" *ngIf="lastName.touched">
-                        <span *ngIf="lastName.errors?.required"> Last name is REQUIRED!!! </span>
+                        <span *ngIf="lastName.errors?.required"> Last name is required field* </span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -26,7 +26,7 @@
                     <input id="email" class="form-control has-validation" formControlName="email"
                         placeholder="Email (required)" required />
                     <div class="help-block text-danger" *ngIf="email.touched">
-                        <span *ngIf="email.errors?.required"> Email is REQUIRED!!! </span>
+                        <span *ngIf="email.errors?.required"> Email is required field* </span>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                     <input type="password" id="password" class="form-control has-validation" formControlName="password"
                         required />
                     <div class="help-block text-danger" *ngIf="password.touched">
-                        <span *ngIf="password.errors?.required"> password is REQUIRED!!! </span>
+                        <span *ngIf="password.errors?.required"> Password is required field*</span>
                     </div>
                 </div>
 
@@ -46,7 +46,7 @@
                         maxlength="10" class="form-control has-validation" formControlName="mobile"
                         placeholder="Enter your phone #" />
                     <div class="help-block text-danger" *ngIf="mobile.touched">
-                        <span *ngIf="mobile.errors?.required"> Mobile number is REQUIRED!!! </span>
+                        <span *ngIf="mobile.errors?.required"> Mobile number is required field* </span>
                     </div>
                 </div>
                 <hr />

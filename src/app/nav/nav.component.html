@@ -78,7 +78,7 @@
                             aria-describedby="emailHelp" placeholder="Enter first name" required>
                         <div class="help-block text-danger" *ngIf="firstName.touched">
                             <span *ngIf="firstName.errors?.required">
-                                First Name is REQUIRED!!!
+                                First Name is a required field*
                             </span>
                         </div>
 
@@ -89,7 +89,7 @@
                             id="exampleInputLastName" required />
                         <div class="help-block text-danger" *ngIf="lastname.touched">
                             <span *ngIf="lastname.errors?.required">
-                                last name is REQUIRED!!!
+                                last name is a required field*
                             </span>
                         </div>
                     </div>
@@ -98,27 +98,26 @@
                                 class="form-label">Email
                                 address*</label></strong>
                         <input type="email" placeholder="Enter your email address" formControlName="email"
-                            class="form-control" id="exampleInputEmail1">
+                            class="form-control" id="exampleInputEmail1 " required />
                     </div>
                     <div class="help-block text-danger" *ngIf="email.touched">
                         <span *ngIf="email.errors?.required">
-                            email is REQUIRED!!!
+                            email is is a required field*
                         </span>
                     </div>
-
                     <div class="mb-3">
                         <strong> <em class="bi bi-telephone-fill"></em> <label for="exampleInputmobile1"
                                 class="form-label">Mobile
                                 Number*</label></strong>
-                        <input type="number" placeholder="Enter Mobile Number" formControlName="mobile"
+                        <input type="number" placeholder="Enter Mobile Number" formControlName="mobile" maxlength="10"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             class="form-control" id="exampleInputmobile1" required />
                     </div>
                     <div class="help-block text-danger" *ngIf="mobile.touched">
                         <span *ngIf="mobile.errors?.required">
-                            Mobile is REQUIRED!!!
+                            Mobile is a required field*
                         </span>
                     </div>
-
                     <strong> <em class="bi bi-envelope-fill"></em> <label>Lead Source*</label></strong>
                     <select class="form-select" aria-label="Default select example" placeholder="pick a lead source"
                         formControlName="leadsource">
@@ -130,15 +129,12 @@
                         <option value="Facebook">Facebook</option>
                         <option value="LinkedIn">LinkedIn</option>
                         <option value="Direct Mail">Direct Mail</option>
-
-
                     </select>
                     <hr>
                     <strong> <em class="bi bi-basket3-fill"></em> <label>Enter a Product*</label></strong>
                     <select class="form-select" aria-label="Default select example" formControlName="product">
                         <option *ngFor="let user of viewVal" value="{{user.addproduct}}">{{user.addproduct}}
                         </option>
-
                     </select>
 
 
