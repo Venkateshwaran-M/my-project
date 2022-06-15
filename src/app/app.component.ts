@@ -9,7 +9,7 @@ export class AppComponent {
   title = 'Planned-Maintainence-System';
   
 
-  constructor(private route:Router) {
+constructor(private route:Router) {
  const  userid =  localStorage.getItem('userId') 
  const role = localStorage.getItem('role');
     if(userid == null && userid==undefined) {
