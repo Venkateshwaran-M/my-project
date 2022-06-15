@@ -57,7 +57,7 @@ storing(Formvalue:any)
     this.toastr.success("Contact details submitted successfully")
 
 },_rej=>{
-  this.toastr.error("Cannot Post Data until field are empty",_rej)
+  console.log(_rej);
 });
 this.myobj=localStorage.getItem("User");
 console.log(this.myobj);
